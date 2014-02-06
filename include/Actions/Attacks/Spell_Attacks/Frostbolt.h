@@ -7,9 +7,9 @@ namespace lab3 {
 
   class Frozen;
   
-  class Frost_Nova : public Spell_Attack {
+  class Frostbolt : public Spell_Attack {
     public:
-      Frost_Nova(Actor* source, Actor* target) { _name="Frost Nova"; _source = source; _target=target; _damage=30; }
+      Frostbolt(Actor* source, Actor* target) { _name="Silence"; _source = source; _target=target; _damage=30; }
       const string get_description() const;
     private:
   };

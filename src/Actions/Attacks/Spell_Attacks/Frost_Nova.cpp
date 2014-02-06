@@ -5,16 +5,11 @@ namespace lab3 {
 
   class Frozen;
   
-  void Frost_Nova::apply() {
-    _damage = 30;
-    for(auto& buff : _target->get_buffs()) {
-      buff.second->on_dmg(this);
-    }
+  const string Frost_Nova::get_description() const {
+    ostringstream ss;
 
-    _target->set_damage(_damage);
-  }
-  
-  void Frost_Nova::apply_action() {
-    _target->add_debuff(new Frozen(5));
+    ss << "Deals " << get_dmg() << " damage to all enemies and freezes them in place";
+
+    return ss.str();
   }
 }

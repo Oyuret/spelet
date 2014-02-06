@@ -73,14 +73,47 @@ namespace lab3 {
     if(_debuffs.size() != 0) {
       ss << get_name() << " is currently affected by ";
       for(auto& debuff : _debuffs) {
-        ss << debuff.first << " for " << debuff.second->get_duration() << " more rounds\n";
+        ss << debuff.first <<  " " << debuff.second->get_description() << "\n";
       }
     } else {
-      ss << get_name() <<" has currently no buffs.\n";
+      ss << get_name() <<" has currently no debuffs.\n";
     }
 
     return ss.str();
      
+  }
+
+  // check if the Actor can perform the given action
+  bool Actor::can_perform(const Action* action) const {
+    bool status = true;
+    
+
+    // loop through all debuffs and see if we can perform
+    for(const std::pair<string, Debuff*>& tmp : _debuffs) {
+      if(tmp.second->can_perform(action)==false)
+        status=false;
+    }
+
+    return status;
+  }
+
+  // check if the Actor is immune to the given Action
+  bool Actor::is_immune(const Action* action) const {
+    bool value = false;
+
+    // loop through all debuffs and check if it makes us immune
+    for(const std::pair<string, Debuff*>& tmp : _debuffs) {
+      if(tmp.second->check_immunity(action)==true)
+        value=true;
+    }
+
+    // loop through all buffs and check if we are immune
+    for(const std::pair<string, Buff*>& tmp : _buffs) {
+      if(tmp.second->check_immunity(action)==true)
+        value=true;
+    }
+    
+    return value;
   }
 
   // this actor is dead. Commence clean-up

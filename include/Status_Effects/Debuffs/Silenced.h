@@ -6,9 +6,9 @@ namespace lab3 {
 
   class Actor;
 
-  class Frozen : public Debuff {
+  class Silenced : public Debuff {
     public:
-      Frozen() { _name = "Frozen"; _duration=10; }
+      Silenced() { _name = "Silenced"; _duration=10; }
 
       virtual void on_attack(Actor& target);
       virtual void on_dmg(string source);

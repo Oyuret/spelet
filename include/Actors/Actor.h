@@ -37,6 +37,10 @@ namespace lab3 {
       void add_buff(Buff*);
       void add_debuff(Debuff*);
 
+      // combat stuff
+      virtual bool can_perform(const Action* action) const;
+      virtual bool is_immune(const Action* action) const;
+
       ~Actor();
 
     private:
