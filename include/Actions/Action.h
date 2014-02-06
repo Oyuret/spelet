@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
-//#include "../Actors/Actor.h"
+#include <iostream>
+#include <sstream>
 
 namespace lab3 {
   using namespace std;
@@ -11,7 +12,7 @@ namespace lab3 {
       Action() {}
       Action(string name, Actor* source, Actor* target) : _name(name), 
                                     _source(source), _target(target) {}
-      virtual const string get_description() const { return "This is a bogus description";}
+      virtual const string get_description() const { return "This is a bogus description"; }
       
       // execute the action
       virtual void perform() {}

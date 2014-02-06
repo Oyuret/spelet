@@ -40,20 +40,8 @@ namespace lab3 {
     return _description;
   }
 
-  const size_t Actor::get_health() const {
+  const int Actor::get_health() const {
     return _health;
-  }
-
-  const size_t Actor::get_agility() const {
-    return _agility;
-  }
-
-  const size_t Actor::get_dexterity() const {
-    return _dexterity;
-  }
-
-  const size_t Actor::get_intelligence() const {
-    return _intelligence;
   }
 
   const string Actor::get_status() const {

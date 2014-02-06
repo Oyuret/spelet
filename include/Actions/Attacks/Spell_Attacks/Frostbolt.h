@@ -9,8 +9,8 @@ namespace lab3 {
   
   class Frostbolt : public Spell_Attack {
     public:
-      Frostbolt(Actor* source, Actor* target) { _name="Silence"; _source = source; _target=target; _damage=30; }
-      const string get_description() const;
+      Frostbolt(Actor* source, Actor* target) { _name="Frostbolt"; _source = source; _target=target; _damage=30; }
+      virtual const string get_description() const;
     private:
   };
 }

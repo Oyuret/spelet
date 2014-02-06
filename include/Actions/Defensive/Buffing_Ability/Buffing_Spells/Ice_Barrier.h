@@ -10,7 +10,7 @@ namespace lab3 {
   class Ice_Barrier : public Buffing_Ability {
     public:
       Ice_Barrier(Actor* source, Actor* target) : _armor(50) { _name="Ice Barrier"; _source = source; _target=target; }
-      const string get_description() const;
+      virtual const string get_description() const;
     private:
       int _armor;
   };

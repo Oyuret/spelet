@@ -5,6 +5,7 @@ namespace lab3 {
   class Buffing_Ability : public Defensive_Spell {
     public:
       Buffing_Ability() {}
+      ~Buffing_Ability() {}
     private:
   };
 }

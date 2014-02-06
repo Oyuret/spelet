@@ -20,10 +20,7 @@ namespace lab3 {
       const string get_description() const;
 
       // stats
-      const size_t get_health() const;
-      const size_t get_agility() const;
-      const size_t get_dexterity() const;
-      const size_t get_intelligence() const;
+      const int get_health() const;
 
       // modify stats
       void set_damage(size_t hp) {_health-=hp;}
@@ -44,22 +41,19 @@ namespace lab3 {
       ~Actor();
 
     private:
-      
-
-    protected:
-      // descriptic
-      string _name;
-      string _description;
 
       // buffs and debuffs
       unordered_map<string, Buff* > _buffs;
       unordered_map<string, Debuff* > _debuffs;
 
+    protected:
+
+      // descriptic
+      string _name;
+      string _description;
+
       // stats
-      int _health;
-      size_t _agility;
-      size_t _dexterity;
-      size_t _intelligence;
-      
+      int _health; 
+          
   };
 }

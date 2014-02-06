@@ -10,7 +10,7 @@ namespace lab3 {
   class Silence : public Spell_Attack {
     public:
       Silence(Actor* source, Actor* target) { _name="Silence"; _source = source; _target=target; _damage=0; }
-      const string get_description() const;
+      virtual const string get_description() const;
     private:
   };
 }

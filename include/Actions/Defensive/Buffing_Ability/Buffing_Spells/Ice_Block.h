@@ -10,7 +10,7 @@ namespace lab3 {
   class Ice_Block : public Buffing_Ability {
     public:
       Ice_Block(Actor* source, Actor* target) { _name="Ice Block"; _source = source; _target=target; }
-      const string get_description() const;
+      virtual const string get_description() const;
 
     private:
   };

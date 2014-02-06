@@ -7,6 +7,9 @@ namespace lab3 {
   using namespace std;
 
   class Melee : public Enemy {
+    public:
+    private:
+    protected:
   };
  }
 
