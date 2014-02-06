@@ -6,5 +6,7 @@ namespace lab3 {
     public:
       Healing_Spell() {}
     private:
+    protected:
+      size_t _healing_power;
   };
 }

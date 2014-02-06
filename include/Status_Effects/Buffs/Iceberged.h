@@ -5,10 +5,11 @@ namespace lab3 {
   using namespace std;
 
   class Actor;
+  class Status_Effect;
 
-  class Frozen_Armor : public Buff {
+  class Iceberged : public Buff {
     public:
-      Frozen_Armor() : _armor(50) { _name = "Frozen Armor";}
+      Iceberged() { _name = "Iceberged"; _armor=0;}
 
       virtual void on_attack(Actor& target);
       virtual void on_dmg(Attack* action);
@@ -17,6 +18,7 @@ namespace lab3 {
 
       // combat stuff
       virtual bool check_immunity(const Action* action) const;
+
     private:
       int _armor;
   };

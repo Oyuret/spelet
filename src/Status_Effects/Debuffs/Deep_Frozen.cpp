@@ -33,7 +33,7 @@ namespace lab3 {
     return ss.str();
   }
 
-  bool Deep_Frozen::can_perform(const Action* attack) const {
+  bool Deep_Frozen::can_perform(const Action* attack) const {    
     // we are deep frozen, cannot do anything
     return false;
   }

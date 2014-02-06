@@ -1,6 +1,7 @@
 #include "include\Actors\Enemies\Melee\Humanoids\Pirate.h"
 #include "include\Actors\Player\Player.h"
 #include "include\Actions\Attacks\Spell_Attacks\Frost_Nova.h"
+#include "include\Actions\Defensive\Buffing_Ability\Buffing_Spells\Ice_Block.h"
 #include "include\Status_Effects\Buffs\Frozen_Armor.h"
 #include "include\Status_Effects\Debuffs\Sheeped.h"
 #include "include\Actions\Attacks\Spell_Attack.h"
@@ -32,8 +33,10 @@ int main() {
 
   Frost_Nova * attack1 = new Frost_Nova(&me, &enemy);
   Frost_Nova * attack2 = new Frost_Nova(&enemy, &me);
-  cout << me.can_perform(attack1) << endl;
-  cout << enemy.can_perform(attack2) << endl;
+  Ice_Block * isblock = new Ice_Block(&enemy, &enemy);
+  cout << "Should be one, got no debuffs = " << me.can_perform(attack1) << endl;
+  cout << "Should be 0, enemy is sheeped = " <<enemy.can_perform(attack2) << endl;
+  cout << "Should be 1, casting iceblock = " << enemy.can_perform(isblock) << endl;
   
 
   system("pause");

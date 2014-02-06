@@ -1,6 +1,8 @@
 #include "../include/Actors/Actor.h"
+#include "../include/Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Block.h"
 
 namespace lab3 {
+  class Ice_Block;
 
   void Actor::add_buff(Buff* buff) {
     std::pair<string, Buff*> tmp (buff->get_name(), buff);
@@ -86,6 +88,9 @@ namespace lab3 {
   // check if the Actor can perform the given action
   bool Actor::can_perform(const Action* action) const {
     bool status = true;
+
+    // if the Action is Ice_Block we can ALWAYS perform it
+    if(dynamic_cast<const Ice_Block*>(action)!=0) return true;
     
 
     // loop through all debuffs and see if we can perform
