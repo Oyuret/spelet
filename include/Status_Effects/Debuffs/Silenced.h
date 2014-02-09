@@ -9,10 +9,8 @@ namespace lab3 {
   class Silenced : public Debuff {
     public:
       Silenced() { _name = "Silenced"; _duration=10; }
+      ~Silenced() {}
 
-      virtual void on_attack(Actor& target);
-      virtual void on_dmg(string source);
-      virtual void on_end(Actor& target);
       virtual const string get_description() const;
 
       virtual bool can_perform(const Action* attack) const;

@@ -10,10 +10,8 @@ namespace lab3 {
   class Iceberged : public Buff {
     public:
       Iceberged() { _name = "Iceberged"; _armor=0;}
+      ~Iceberged() {}
 
-      virtual void on_attack(Actor& target);
-      virtual void on_dmg(Attack* action);
-      virtual void on_end(Actor& target);
       virtual const string get_description() const;
 
       // combat stuff

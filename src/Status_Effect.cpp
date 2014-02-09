@@ -23,12 +23,6 @@ namespace lab3 {
     return "";
   }
 
-  void Status_Effect::on_apply(Actor& target) {}
-  void Status_Effect::on_start(Actor& target) {}
-  void Status_Effect::on_dmg(Attack* action) {}
-  void Status_Effect::on_attack(Actor& target) {}
-  void Status_Effect::on_end(Actor& target) {}
-
   bool Status_Effect::check_immunity(const Action* action) const { return false; }
   bool Status_Effect::can_perform(const Action* action) const { return true; }
 }

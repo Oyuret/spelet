@@ -11,6 +11,11 @@ namespace lab3 {
     public:
       Deep_Freeze(Actor* source, Actor* target) { _name="Deep Freeze"; _source = source; _target=target; _damage=0; }
       virtual const string get_description() const;
+
+      virtual const string perform();
+      
     private:
+    protected:
+      virtual void apply_collaterals();
   };
 }

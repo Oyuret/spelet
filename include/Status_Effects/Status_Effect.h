@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include "../Actions/Attack.h"
+#include "../Actions/Defensive.h"
 #include "../Actions/Action.h"
 #include "../Actions/Attacks/Melee_Attack.h"
 #include "../Actions/Attacks/Spell_Attack.h"
@@ -21,12 +22,15 @@ namespace lab3 {
       Status_Effect() {}
       Status_Effect(string name, size_t duration) : _name(name), _duration(duration) {}
 
-      // battle actions
-      virtual void on_apply(Actor& target);
-      virtual void on_start(Actor& target);
-      virtual void on_dmg(Attack* action);
-      virtual void on_attack(Actor& target);
-      virtual void on_end(Actor& target);
+      // turn actions
+      virtual void on_turn_start() {}
+      virtual void on_turn_end() {}
+
+      // combat actions
+      virtual void on_dmg(Action* action) const {}
+      //virtual void on_dmg(Attack* action) const {}
+      //virtual void on_dmg(Defensive* action) const {}
+      
 
       // before we get attacked checks
       virtual bool check_immunity(const Action* action) const;

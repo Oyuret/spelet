@@ -2,8 +2,11 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include "../../include/Tools/Random.h"
 
 namespace lab3 {
+  
+
   using namespace std;
   class Actor;
 
@@ -15,13 +18,17 @@ namespace lab3 {
       virtual const string get_description() const { return "This is a bogus description"; }
       
       // execute the action
-      virtual void perform() {}
+      virtual const string perform(Random& ran) { return "This is bogus"; }
 
     private:
       
     protected:
+      ostringstream _ss;
       string _name;
       Actor* _source;
       Actor* _target;
+
+      virtual void calculate_action(Random& ran) {}
+      virtual void apply_collaterals(Random& ran) {}
   };
 }

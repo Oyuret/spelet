@@ -9,10 +9,8 @@ namespace lab3 {
   class Frozen : public Debuff {
     public:
       Frozen() { _name = "Frozen"; _duration=10; }
+      ~Frozen() {}
 
-      virtual void on_attack(Actor& target);
-      virtual void on_dmg(string source);
-      virtual void on_end(Actor& target);
       virtual const string get_description() const;
 
       virtual bool can_perform(const Action* attack) const;

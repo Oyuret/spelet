@@ -7,5 +7,6 @@ namespace lab3 {
   class Debuff : public Status_Effect {
     public:
       Debuff() {}
+      ~Debuff() {}
   };
  }

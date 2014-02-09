@@ -5,5 +5,8 @@ namespace lab3 {
   using namespace std;
 
   class Buff : public Status_Effect {
+    public:
+      Buff() {}
+      ~Buff() {}
   };
  }
