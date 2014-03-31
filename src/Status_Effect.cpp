@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../include/Status_Effects/Status_Effect.h"
 
 namespace lab3 {
@@ -21,6 +20,10 @@ namespace lab3 {
 
   const string Status_Effect::get_description() const{
     return "";
+  }
+
+  void Status_Effect::set_duration(size_t time) {
+    _duration= time;
   }
 
   bool Status_Effect::check_immunity(const Action* action) const { return false; }

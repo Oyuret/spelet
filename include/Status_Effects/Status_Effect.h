@@ -27,9 +27,9 @@ namespace lab3 {
       virtual void on_turn_end() {}
 
       // combat actions
-      virtual void on_dmg(Action* action) const {}
-      //virtual void on_dmg(Attack* action) const {}
-      //virtual void on_dmg(Defensive* action) const {}
+      //virtual void on_dmg(Action* action) const {}
+      virtual void on_dmg(Attack* action) {}
+      virtual void on_dmg(Defensive* action) {}
       
 
       // before we get attacked checks
@@ -51,5 +51,6 @@ namespace lab3 {
       size_t _duration;
       string _name;
       void decrease_duration();
+      void set_duration(size_t time);
   };
  }

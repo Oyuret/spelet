@@ -1,6 +1,9 @@
 #include "../../../include/Status_Effects/Debuffs/Frozen.h"
+#include "../../../include/Actions/Attacks/Spell_Attacks/Ice_Lance.h"
 
 namespace lab3 {
+
+  class Ice_Lance;
 
   const string Frozen::get_description() const {
     ostringstream ss;
@@ -22,5 +25,12 @@ namespace lab3 {
 
   bool Frozen::check_immunity(const Action* action) const {
     return false;
+  }
+
+  void Frozen::on_dmg(Attack* attack) {
+    if(dynamic_cast<Ice_Lance*>(attack)!=0) {
+      attack->set_dmg(attack->get_dmg()*2);
+      set_duration(0);
+    }
   }
 }

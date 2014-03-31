@@ -13,7 +13,7 @@ namespace lab3 {
 
     public:
       Actor() {}
-      Actor(string name, string description) : _name(name), _description(description) {}
+      Actor(string name, string description) : _name(name), _description(description), _dead(false) {}
 
       // descriptic
       const string get_name() const;
@@ -23,7 +23,7 @@ namespace lab3 {
       const int get_health() const;
 
       // modify stats
-      void set_damage(size_t hp) {_health-=hp;}
+      void set_damage(size_t hp);
 
       // status
       const string get_status() const;
@@ -37,6 +37,9 @@ namespace lab3 {
       // combat stuff
       virtual bool can_perform(const Action* action) const;
       virtual bool is_immune(const Action* action) const;
+
+      // checks
+      bool is_dead() {return _dead;}
 
       ~Actor();
 
@@ -53,7 +56,10 @@ namespace lab3 {
       string _description;
 
       // stats
-      int _health; 
+      int _health;
+
+      // stuff
+      bool _dead;
           
   };
 }

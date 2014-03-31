@@ -15,6 +15,8 @@ namespace lab3 {
 
       virtual bool can_perform(const Action* attack) const;
       virtual bool check_immunity(const Action* action) const;
+
+      virtual void on_dmg(Attack* attack);
     private:
   };
   

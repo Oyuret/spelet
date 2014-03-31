@@ -44,8 +44,21 @@ namespace lab3 {
     return _health;
   }
 
+  void Actor::set_damage(size_t hp) {
+    _health-=hp;
+    if(_health<=0) {
+      _health=0;
+      _dead=true;
+    }
+  }
+
   const string Actor::get_status() const {
     ostringstream ss;
+
+    if(_dead==true) {
+      ss << get_name() << " is dead!" << endl;
+      return ss.str();
+    }
 
     ss << get_name() << " has " << get_health() << " health points left.\n";
     
