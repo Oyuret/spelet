@@ -7,13 +7,14 @@ namespace lab3 {
 
 
   const string Deep_Freeze::perform(Random& ran) {
+    _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     apply_collaterals();
-    _ss << _target->get_name() << " is now affected by " << this->_name << endl;
     return _ss.str();
   }
 
   void Deep_Freeze::apply_collaterals() {
     _target->add_debuff(new Deep_Frozen());
+    _ss << _target->get_name() << " is now affected by " << this->_name << endl;
   }
 
   const string Deep_Freeze::get_description() const {

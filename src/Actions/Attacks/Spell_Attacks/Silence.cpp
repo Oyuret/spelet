@@ -6,10 +6,11 @@ namespace lab3 {
   class Silenced;
 
   const string Silence::perform(Random& ran) {
+    _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     apply_collaterals(ran);
     return _ss.str();
   }
-  
+
   const string Silence::get_description() const {
     ostringstream ss;
 
@@ -22,7 +23,7 @@ namespace lab3 {
   }
 
   void Silence::apply_collaterals(Random& ran) {
-    
+
     _ss << "Silences " << _target->get_name() << endl;
     _target->add_debuff(new Silenced());
   }

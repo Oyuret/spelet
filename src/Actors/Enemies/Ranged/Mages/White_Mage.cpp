@@ -17,7 +17,7 @@ namespace lab3 {
     }
 
     // Check how low he really was
-    if(lowest_health->get_health_precent() <= 0.2) {
+    if(lowest_health->get_health_precent() <= 0.45) {
       return new Heal(this, lowest_health);
     }
 

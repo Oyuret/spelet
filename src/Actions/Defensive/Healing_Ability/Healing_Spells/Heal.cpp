@@ -13,6 +13,7 @@ namespace lab3 {
   }
 
   const string Heal::perform(Random& ran) {
+    _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     calculate_action(ran);
     _ss << _source->get_name() << " heals " << _target->get_name() << " for " << _healing_power << endl ;
     _target->heal_up(_healing_power);

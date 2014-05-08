@@ -7,6 +7,7 @@ namespace lab3 {
 
 
   const string Ice_Lance::perform(Random& ran) {
+    _ss << _source->get_name() << " casts " << _target->get_name() << " on " << _target->get_name() << endl;
     calculate_action(ran);
     _ss << "Ice Lance deals " << _damage << " points of damage to " << _target->get_name() << endl;
     _target->set_damage(_damage);

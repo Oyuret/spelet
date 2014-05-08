@@ -44,23 +44,6 @@ int main() {
 
   Action* frost = spells["frostbolt"](&me, &enemy);
 
-  cout << me.can_perform(frost) << endl;
-  cout << enemy.is_immune(frost) << endl;
-  cout << frost->get_description()<<endl;
-  cout << frost->perform(ran)<<endl;
-
-  cout << enemy.get_status() << endl;
-
-  Action* test = healer.pick_action(players, enemies);
-
-  cout << healer.can_perform(test)<<endl;
-  cout << enemy.is_immune(test)<<endl;
-
-  cout << test->get_description()<<endl;
-  cout << test->perform(ran)<<endl;
-
-   cout << enemy.get_status() << endl;
-
    Action* test2 = sorcerer.pick_action(players, enemies);
 
    for(int i =0; i<10; i++) {
@@ -68,6 +51,15 @@ int main() {
 
     cout << test2->get_description()<<endl;
     cout << test2->perform(ran)<<endl;
+
+    frost = spells["frostbolt"](&me, &enemy);
+    cout << frost->get_description()<<endl;
+    cout << frost->perform(ran)<<endl;
+
+    Action* test = healer.pick_action(players, enemies);
+
+    cout << test->get_description()<<endl;
+    cout << test->perform(ran)<<endl;
    }
 
 

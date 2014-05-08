@@ -6,6 +6,7 @@ namespace lab3 {
   class Sheeped;
 
   const string Polymorph::perform(Random& ran) {
+    _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     apply_collaterals(ran);
     return _ss.str();
   }
@@ -14,7 +15,7 @@ namespace lab3 {
   }
 
   void Polymorph::apply_collaterals(Random& ran) {
-    
+
     _ss << "Turns " << _target->get_name() << " into a sheep!" << endl;
     _target->add_debuff(new Sheeped());
   }

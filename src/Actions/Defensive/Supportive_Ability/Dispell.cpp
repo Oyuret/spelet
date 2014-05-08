@@ -10,6 +10,8 @@ namespace lab3 {
 
   const string Dispell::perform(Random& ran) {
 
+    _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
+
     if(_target->get_debuffs().size() == 0) {
       _ss << _source->get_name() <<" attempted to dispell " << _target->get_name() << " but there was nothing to dispell!" << endl;
       return _ss.str();
