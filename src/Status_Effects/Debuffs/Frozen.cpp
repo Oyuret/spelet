@@ -30,7 +30,6 @@ namespace lab3 {
   void Frozen::on_dmg(Attack* attack) {
     if(dynamic_cast<Ice_Lance*>(attack)!=0) {
       attack->set_dmg(attack->get_dmg()*2);
-      set_duration(0);
     }
   }
 }

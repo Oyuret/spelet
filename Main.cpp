@@ -25,7 +25,7 @@ int main() {
   Pirate enemy;
   White_Mage healer;
   Black_Mage sorcerer;
-  Player me("Yuri", "Magikern från berga", 200);
+  Player me("Yuri", "Magikern från berga", 20000);
 
   list<Player*> players;
   list<Enemy*> enemies;
@@ -63,18 +63,12 @@ int main() {
 
    Action* test2 = sorcerer.pick_action(players, enemies);
 
-   cout << test2->get_description()<<endl;
-    cout << test2->perform(ran)<<endl;
-
+   for(int i =0; i<10; i++) {
     test2 = sorcerer.pick_action(players, enemies);
 
     cout << test2->get_description()<<endl;
     cout << test2->perform(ran)<<endl;
-
-    test2 = sorcerer.pick_action(players, enemies);
-
-    cout << test2->get_description()<<endl;
-    cout << test2->perform(ran)<<endl;
+   }
 
 
   system("pause");
