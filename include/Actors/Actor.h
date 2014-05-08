@@ -12,7 +12,7 @@ namespace lab3 {
   class Actor {
 
     public:
-      Actor() {}
+      Actor() : _dead(false) {}
       Actor(string name, string description) : _name(name), _description(description), _dead(false) {}
 
       // descriptic
@@ -21,9 +21,11 @@ namespace lab3 {
 
       // stats
       const int get_health() const;
+      double get_health_precent() const;
 
       // modify stats
       void set_damage(size_t hp);
+      void heal_up(size_t healing_power);
 
       // status
       const string get_status() const;
@@ -57,9 +59,10 @@ namespace lab3 {
 
       // stats
       int _health;
+      int _max_health;
 
       // stuff
       bool _dead;
-          
+
   };
 }

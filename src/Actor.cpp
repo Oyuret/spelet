@@ -44,11 +44,22 @@ namespace lab3 {
     return _health;
   }
 
+  double Actor::get_health_precent() const {
+    return (double)((double)_health) / ((double)_max_health);
+  }
+
   void Actor::set_damage(size_t hp) {
     _health-=hp;
     if(_health<=0) {
       _health=0;
       _dead=true;
+    }
+  }
+
+  void Actor::heal_up(size_t healing_power) {
+    _health+=healing_power;
+    if(_health >_max_health) {
+      _health=_max_health;
     }
   }
 
@@ -61,7 +72,7 @@ namespace lab3 {
     }
 
     ss << get_name() << " has " << get_health() << " health points left.\n";
-    
+
     // list buffs
     if(_buffs.size() != 0) {
       ss << get_name() << " is currently buffed by ";
@@ -83,7 +94,7 @@ namespace lab3 {
     }
 
     return ss.str();
-     
+
   }
 
   // check if the Actor can perform the given action
@@ -92,7 +103,7 @@ namespace lab3 {
 
     // if the Action is Ice_Block we can ALWAYS perform it
     if(dynamic_cast<const Ice_Block*>(action)!=0) return true;
-    
+
 
     // loop through all debuffs and see if we can perform
     for(const std::pair<string, Debuff*>& tmp : _debuffs) {
@@ -107,6 +118,9 @@ namespace lab3 {
   bool Actor::is_immune(const Action* action) const {
     bool value = false;
 
+    // if we are dead we know we are immune
+    if(_dead) return true;
+
     // loop through all debuffs and check if it makes us immune
     for(const std::pair<string, Debuff*>& tmp : _debuffs) {
       if(tmp.second->check_immunity(action)==true)
@@ -118,7 +132,7 @@ namespace lab3 {
       if(tmp.second->check_immunity(action)==true)
         value=true;
     }
-    
+
     return value;
   }
 

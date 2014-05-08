@@ -6,14 +6,14 @@ namespace lab3 {
   using namespace std;
 
   class Deep_Frozen;
-  
+
   class Deep_Freeze : public Spell_Attack {
     public:
       Deep_Freeze(Actor* source, Actor* target) { _name="Deep Freeze"; _source = source; _target=target; _damage=0; }
       virtual const string get_description() const;
 
-      virtual const string perform();
-      
+      virtual const string perform(Random& ran);
+
     private:
     protected:
       virtual void apply_collaterals();

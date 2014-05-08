@@ -6,7 +6,7 @@ namespace lab3 {
 
   class Ninja : public Melee {
     public:
-      Ninja() { _name="Ninja"; _description="A skillful ninja!"; _health = 100; }
+      Ninja() { _name="Ninja"; _description="A skillful ninja!"; _health = 100; _max_health = 100; }
     private:
     protected:
   };

@@ -1,4 +1,5 @@
 #include "include\Actors\Enemies\Melee\Humanoids\Pirate.h"
+#include "include/Actors/Enemies/Ranged/Mages/White_Mage.h"
 #include "include\Actors\Player\Player.h"
 #include "include\Actions\Attacks\Spell_Attacks\Frostbolt.h"
 #include "include\Actions\Attacks\Spell_Attacks\Ice_Lance.h"
@@ -6,13 +7,14 @@
 #include "include\Status_Effects\Buffs\Frozen_Armor.h"
 #include "include\Status_Effects\Debuffs\Sheeped.h"
 #include "include\Actions\Attacks\Spell_Attack.h"
-#include "../lab3/include/Tools/Random.h"
+#include "include/Tools/Random.h"
 #include "include\Actions\Action.h"
 #include <functional>
 #include <stdio.h>
 #include <iostream>
 #include <string>
 #include <map>
+#include <list>
 
 using namespace lab3;
 using namespace std;
@@ -20,7 +22,16 @@ using namespace std;
 int main() {
 
   Pirate enemy;
-  Player me("Yuri", "Magikern från berga");
+  White_Mage healer;
+  Player me("Yuri", "Magikern frÃ¥n berga");
+
+  list<Player*> players;
+  list<Enemy*> enemies;
+
+  players.push_back(&me);
+  enemies.push_back(&healer);
+  enemies.push_back(&enemy);
+
 
   std::map<std::string, std::function<Action*(Actor*,Actor*)>> spells;
 
@@ -31,13 +42,30 @@ int main() {
 
   Action* frost = spells["frostbolt"](&me, &enemy);
 
-  cout << frost->get_description() << endl;
+  cout << me.can_perform(frost) << endl;
+  cout << enemy.is_immune(frost) << endl;
+  cout << frost->get_description()<<endl;
   cout << frost->perform(ran)<<endl;
-  
-  
+  cout << frost->perform(ran)<<endl;
+  cout << frost->perform(ran)<<endl;
+  cout << frost->perform(ran)<<endl;
+
+  cout << enemy.get_status() << endl;
+
+  Action* test = healer.pick_action(players, enemies);
+
+  cout << healer.can_perform(test)<<endl;
+  cout << enemy.is_immune(test)<<endl;
+
+  cout << test->get_description()<<endl;
+  cout << test->perform(ran)<<endl;
+
+   cout << enemy.get_status() << endl;
 
 
-  
+
+
+
   system("pause");
   return 0;
 }

@@ -6,6 +6,6 @@ namespace lab3 {
 
   class Pirate : public Melee {
     public:
-      Pirate() {_name="Pirate"; _description="Yarr! A nasty pirate!"; _health = 100;}
+      Pirate() {_name="Pirate"; _description="Yarr! A nasty pirate!"; _health = 100; _max_health = 100; }
   };
  }

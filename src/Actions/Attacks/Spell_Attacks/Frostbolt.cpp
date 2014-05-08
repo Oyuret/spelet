@@ -14,7 +14,7 @@ namespace lab3 {
   }
 
   void Frostbolt::calculate_action(Random& ran) {
-    
+
     // loop through all debuffs and calculate the dmg
     for(const std::pair<string, Debuff*>& tmp : _target->get_debuffs()) {
       tmp.second->on_dmg(this);
@@ -30,14 +30,14 @@ namespace lab3 {
 
     int dice_roll = ran.next_random();
 
-    if(dice_roll > 50) {
+    if(dice_roll >= 50) {
       _ss << "and freezes the enemy in place " << endl;
       _target->add_debuff(new Frozen());
     } else {
       _ss << endl;
     }
   }
-  
+
   const string Frostbolt::get_description() const {
     ostringstream ss;
 

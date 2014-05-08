@@ -30,7 +30,7 @@ namespace lab3 {
       //virtual void on_dmg(Action* action) const {}
       virtual void on_dmg(Attack* action) {}
       virtual void on_dmg(Defensive* action) {}
-      
+
 
       // before we get attacked checks
       virtual bool check_immunity(const Action* action) const;
@@ -45,11 +45,11 @@ namespace lab3 {
       const string get_name() const;
       virtual ~Status_Effect() {}
     private:
-     
+
 
     protected:
-      size_t _duration;
       string _name;
+      size_t _duration;
       void decrease_duration();
       void set_duration(size_t time);
   };
