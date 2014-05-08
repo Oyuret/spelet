@@ -1,5 +1,6 @@
 #include "include\Actors\Enemies\Melee\Humanoids\Pirate.h"
 #include "include/Actors/Enemies/Ranged/Mages/White_Mage.h"
+#include "include/Actors/Enemies/Ranged/Mages/Black_Mage.h"
 #include "include\Actors\Player\Player.h"
 #include "include\Actions\Attacks\Spell_Attacks\Frostbolt.h"
 #include "include\Actions\Attacks\Spell_Attacks\Ice_Lance.h"
@@ -23,7 +24,8 @@ int main() {
 
   Pirate enemy;
   White_Mage healer;
-  Player me("Yuri", "Magikern från berga");
+  Black_Mage sorcerer;
+  Player me("Yuri", "Magikern från berga", 200);
 
   list<Player*> players;
   list<Enemy*> enemies;
@@ -46,9 +48,6 @@ int main() {
   cout << enemy.is_immune(frost) << endl;
   cout << frost->get_description()<<endl;
   cout << frost->perform(ran)<<endl;
-  cout << frost->perform(ran)<<endl;
-  cout << frost->perform(ran)<<endl;
-  cout << frost->perform(ran)<<endl;
 
   cout << enemy.get_status() << endl;
 
@@ -62,8 +61,20 @@ int main() {
 
    cout << enemy.get_status() << endl;
 
+   Action* test2 = sorcerer.pick_action(players, enemies);
 
+   cout << test2->get_description()<<endl;
+    cout << test2->perform(ran)<<endl;
 
+    test2 = sorcerer.pick_action(players, enemies);
+
+    cout << test2->get_description()<<endl;
+    cout << test2->perform(ran)<<endl;
+
+    test2 = sorcerer.pick_action(players, enemies);
+
+    cout << test2->get_description()<<endl;
+    cout << test2->perform(ran)<<endl;
 
 
   system("pause");
