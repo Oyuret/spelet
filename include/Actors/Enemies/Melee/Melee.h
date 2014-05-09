@@ -1,5 +1,5 @@
-#ifndef LAB3_MELEE
-#define LAB3_MELEE
+#ifndef MELEE_H_INCLUDED
+#define MELEE_H_INCLUDED
 
 #include "../Enemy.h"
 
@@ -8,9 +8,11 @@ namespace lab3 {
 
   class Melee : public Enemy {
     public:
+      Melee() {}
+      virtual ~Melee() {}
     private:
     protected:
   };
  }
 
-#endif
+#endif // MELEE_H_INCLUDED

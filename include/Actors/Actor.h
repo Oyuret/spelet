@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ACTOR_H_INCLUDED
+#define ACTOR_H_INCLUDED
+
 #include <string>
 #include <unordered_map>
 #include <sstream>
@@ -43,7 +45,7 @@ namespace lab3 {
       // checks
       bool is_dead() {return _dead;}
 
-      ~Actor();
+       virtual ~Actor();
 
     private:
 
@@ -66,3 +68,5 @@ namespace lab3 {
 
   };
 }
+
+#endif // ACTOR_H_INCLUDED

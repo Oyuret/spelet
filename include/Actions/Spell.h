@@ -1,11 +1,15 @@
-#pragma once
+#ifndef SPELL_H_INCLUDED
+#define SPELL_H_INCLUDED
+
 namespace lab3 {
-  
+
   class Spell {
     public:
       Spell() {}
-      ~Spell() {}
+      virtual ~Spell() {}
     private:
     protected:
   };
 }
+
+#endif // SPELL_H_INCLUDED

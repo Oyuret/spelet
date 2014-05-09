@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MELEE_ATTACK_H_INCLUDED
+#define MELEE_ATTACK_H_INCLUDED
+
 #include "../Attack.h"
 #include "../Close_Combat.h"
 namespace lab3 {
@@ -9,3 +11,5 @@ namespace lab3 {
     private:
   };
 }
+
+#endif // MELEE_ATTACK_H_INCLUDED

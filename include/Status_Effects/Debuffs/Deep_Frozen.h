@@ -1,3 +1,6 @@
+#ifndef DEEP_FROZEN_H_INCLUDED
+#define DEEP_FROZEN_H_INCLUDED
+
 #include "../Debuff.h"
 #include "../../Actors/Actor.h"
 
@@ -9,7 +12,7 @@ namespace lab3 {
   class Deep_Frozen : public Debuff {
     public:
       Deep_Frozen() { _name = "Frozen"; _duration=10; }
-      ~Deep_Frozen() {}
+      virtual ~Deep_Frozen() {}
 
       virtual const string get_description() const;
 
@@ -17,5 +20,7 @@ namespace lab3 {
       virtual bool check_immunity(const Action* action) const;
     private:
   };
-  
+
 }
+
+#endif // DEEP_FROZEN_H_INCLUDED

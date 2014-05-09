@@ -1,4 +1,3 @@
-#pragma once
 #include "../../../../include/Actions/Attacks/Spell_Attacks/Frostbolt.h"
 
 namespace lab3 {

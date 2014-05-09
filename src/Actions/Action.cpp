@@ -1,4 +1,3 @@
-#pragma once
 #include "../../include/Actions/Action.h"
 #include "../../include/Actors/Actor.h"
 

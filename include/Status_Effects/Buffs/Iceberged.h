@@ -1,3 +1,6 @@
+#ifndef ICEBERGED_H_INCLUDED
+#define ICEBERGED_H_INCLUDED
+
 #include "../Buff.h"
 #include "../../Actors/Actor.h"
 
@@ -10,7 +13,7 @@ namespace lab3 {
   class Iceberged : public Buff {
     public:
       Iceberged() { _name = "Iceberged"; _armor=0;}
-      ~Iceberged() {}
+      virtual ~Iceberged() {}
 
       virtual const string get_description() const;
 
@@ -20,5 +23,7 @@ namespace lab3 {
     private:
       int _armor;
   };
-  
+
 }
+
+#endif // ICEBERGED_H_INCLUDED

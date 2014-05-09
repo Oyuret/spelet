@@ -1,4 +1,6 @@
-#pragma once
+#ifndef HEALING_SPELL_H_INCLUDED
+#define HEALING_SPELL_H_INCLUDED
+
 #include "../Defensive_Spell.h"
 
 namespace lab3 {
@@ -7,8 +9,12 @@ namespace lab3 {
       Healing_Spell() {}
       size_t get_healing_power() const {return _healing_power;}
       void get_healing_power(size_t heal_pwr) {_healing_power=heal_pwr;}
+
+      virtual ~Healing_Spell() {}
     private:
     protected:
       size_t _healing_power;
   };
 }
+
+#endif // HEALING_SPELL_H_INCLUDED

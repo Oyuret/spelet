@@ -1,4 +1,6 @@
-#pragma once
+#ifndef NINJA_H_INCLUDED
+#define NINJA_H_INCLUDED
+
 #include "../Melee.h"
 
 namespace lab3 {
@@ -6,8 +8,11 @@ namespace lab3 {
 
   class Ninja : public Melee {
     public:
-      Ninja() { _name="Ninja"; _description="A skillful ninja!"; _health = 100; _max_health = 100; }
+      Ninja(string name, int health) { _name=name; _description="A skillful ninja!"; _health = health; _max_health = health; }
+      virtual ~Ninja() {}
     private:
     protected:
   };
  }
+
+#endif // NINJA_H_INCLUDED

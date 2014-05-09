@@ -1,4 +1,6 @@
-#pragma once
+#ifndef STATUS_EFFECT_H_INCLUDED
+#define STATUS_EFFECT_H_INCLUDED
+
 #include <iostream>
 #include <sstream>
 #include "../Actions/Attack.h"
@@ -43,6 +45,7 @@ namespace lab3 {
       virtual const string get_description() const;
 
       const string get_name() const;
+
       virtual ~Status_Effect() {}
     private:
 
@@ -54,3 +57,5 @@ namespace lab3 {
       void set_duration(size_t time);
   };
  }
+
+#endif // STATUS_EFFECT_H_INCLUDED

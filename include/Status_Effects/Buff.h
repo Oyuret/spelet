@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BUFF_H_INCLUDED
+#define BUFF_H_INCLUDED
+
 #include "Status_Effect.h"
 
 namespace lab3 {
@@ -7,6 +9,8 @@ namespace lab3 {
   class Buff : public Status_Effect {
     public:
       Buff() {}
-      ~Buff() {}
+      virtual ~Buff() {}
   };
  }
+
+#endif // BUFF_H_INCLUDED

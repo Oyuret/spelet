@@ -1,3 +1,6 @@
+#ifndef FROZEN_H_INCLUDED
+#define FROZEN_H_INCLUDED
+
 #include "../Debuff.h"
 #include "../../Actors/Actor.h"
 
@@ -9,7 +12,7 @@ namespace lab3 {
   class Frozen : public Debuff {
     public:
       Frozen() { _name = "Frozen"; _duration=10; }
-      ~Frozen() {}
+      virtual ~Frozen() {}
 
       virtual const string get_description() const;
 
@@ -19,5 +22,7 @@ namespace lab3 {
       virtual void on_dmg(Attack* attack);
     private:
   };
-  
+
 }
+
+#endif // FROZEN_H_INCLUDED

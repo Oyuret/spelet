@@ -1,4 +1,3 @@
-#pragma once
 #include "../../../../include/Actions/Attacks/Spell_Attacks/Ice_Lance.h"
 #include "../../../../include/Actors/Actor.h"
 #include "../../../../include/Status_Effects/Debuffs/Frozen.h"

@@ -1,3 +1,7 @@
+#ifndef SILENCED_H_INCLUDED
+#define SILENCE_H_INCLUDED
+
+
 #include "../Debuff.h"
 #include "../../Actors/Actor.h"
 
@@ -9,7 +13,7 @@ namespace lab3 {
   class Silenced : public Debuff {
     public:
       Silenced() { _name = "Silenced"; _duration=10; }
-      ~Silenced() {}
+      virtual ~Silenced() {}
 
       virtual const string get_description() const;
 
@@ -17,5 +21,7 @@ namespace lab3 {
       virtual bool check_immunity(const Action* action) const;
     private:
   };
-  
+
 }
+
+#endif // SILENCED_H_INCLUDED

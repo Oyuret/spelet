@@ -1,10 +1,9 @@
-#pragma once
 #include "../../../../include/Actions/Attacks/Spell_Attacks/Frost_Nova.h"
 
 namespace lab3 {
 
   class Frozen;
-  
+
   const string Frost_Nova::get_description() const {
     ostringstream ss;
 

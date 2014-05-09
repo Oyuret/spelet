@@ -1,4 +1,3 @@
-#pragma once
 #include "../../../../include/Actions/Defensive/Supportive_Ability/Dispell.h"
 #include "../../../../include/Status_Effects/Debuff.h"
 #include "../../../../include/Actors/Actor.h"

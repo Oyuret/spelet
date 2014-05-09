@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/Status_Effects/Status_Effect.h"
 
 namespace lab3 {

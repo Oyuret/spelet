@@ -1,4 +1,3 @@
-#pragma once
 #include "../../../../include/Actions/Attacks/Spell_Attacks/Deep_Freeze.h"
 
 namespace lab3 {

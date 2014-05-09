@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ROBOT_H_INCLUDED
+#define ROBOT_H_INCLUDED
+
 #include "../Melee.h"
 
 namespace lab3 {
@@ -6,8 +8,10 @@ namespace lab3 {
 
   class Robot : public Melee {
     public:
-      Robot() {_name="Robot"; _description="A freaking robot!"; _health=200;}
+      Robot(string name, int health) {_name=name; _description="A freaking robot!"; _health=health; _max_health = health;}
     private:
     protected:
   };
  }
+
+#endif // ROBOT_H_INCLUDED

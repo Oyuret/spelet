@@ -1,4 +1,6 @@
-#pragma once
+#ifndef RANDOM_H_INCLUDED
+#define RANDOM_H_INCLUDED
+
 #include <functional>
 #include <random>
 
@@ -14,3 +16,5 @@ namespace lab3 {
       std::uniform_int_distribution<int>* distribution;
   };
 }
+
+#endif // RANDOM_H_INCLUDED

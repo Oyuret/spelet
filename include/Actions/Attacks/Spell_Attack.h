@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SPELL_ATTACK_H_INCLUDED
+#define SPELL_ATTACK_H_INCLUDED
+
 #include "../Attack.h"
 #include "../Spell.h"
 namespace lab3 {
@@ -9,3 +11,5 @@ namespace lab3 {
     private:
   };
 }
+
+#endif // SPELL_ATTACK_H_INCLUDED

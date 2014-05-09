@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PIRATE_H_INCLUDED
+#define PIRATE_H_INCLUDED
+
 #include "../Melee.h"
 
 namespace lab3 {
@@ -6,6 +8,9 @@ namespace lab3 {
 
   class Pirate : public Melee {
     public:
-      Pirate() {_name="Pirate"; _description="Yarr! A nasty pirate!"; _health = 100; _max_health = 100; }
+      Pirate(string name, int health) {_name=name; _description="Yarr! A nasty pirate!"; _health = health; _max_health = health; }
+      virtual ~Pirate() {}
   };
  }
+
+#endif // PIRATE_H_INCLUDED

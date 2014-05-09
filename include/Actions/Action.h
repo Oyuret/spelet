@@ -1,11 +1,13 @@
-#pragma once
+#ifndef ACTION_H_INCLUDED
+#define ACTION_H_INCLUDED
+
 #include <string>
 #include <iostream>
 #include <sstream>
 #include "../../include/Tools/Random.h"
 
 namespace lab3 {
-  
+
 
   using namespace std;
   class Actor;
@@ -13,15 +15,17 @@ namespace lab3 {
   class Action {
     public:
       Action() {}
-      Action(string name, Actor* source, Actor* target) : _name(name), 
+      Action(string name, Actor* source, Actor* target) : _name(name),
                                     _source(source), _target(target) {}
       virtual const string get_description() const { return "This is a bogus description"; }
-      
+
       // execute the action
       virtual const string perform(Random& ran) { return "This is bogus"; }
 
+      virtual ~Action() {}
+
     private:
-      
+
     protected:
       ostringstream _ss;
       string _name;
@@ -32,3 +36,5 @@ namespace lab3 {
       virtual void apply_collaterals(Random& ran) {}
   };
 }
+
+#endif // ACTION_H_INCLUDED

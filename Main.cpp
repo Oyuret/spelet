@@ -22,9 +22,9 @@ using namespace std;
 
 int main() {
 
-  Pirate enemy;
-  White_Mage healer;
-  Black_Mage sorcerer;
+  Pirate enemy("Pirate", 200);
+  White_Mage healer("Priest",200);
+  Black_Mage sorcerer("Sorcerer", 200);
   Player me("Yuri", "Magikern från berga", 20000);
 
   list<Player*> players;
@@ -44,9 +44,9 @@ int main() {
 
   Action* frost = spells["frostbolt"](&me, &enemy);
 
-   Action* test2 = sorcerer.pick_action(players, enemies);
+  Action* test2 = sorcerer.pick_action(players, enemies);
 
-   for(int i =0; i<10; i++) {
+  for(int i =0; i<10; i++) {
     test2 = sorcerer.pick_action(players, enemies);
 
     cout << test2->get_description()<<endl;
@@ -56,11 +56,11 @@ int main() {
     cout << frost->get_description()<<endl;
     cout << frost->perform(ran)<<endl;
 
-    Action* test = healer.pick_action(players, enemies);
+    //Action* test = healer.pick_action(players, enemies);
 
-    cout << test->get_description()<<endl;
-    cout << test->perform(ran)<<endl;
-   }
+    //cout << test->get_description()<<endl;
+    //cout << test->perform(ran)<<endl;
+  }
 
 
   system("pause");
