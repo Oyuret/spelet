@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DEEP_FREEZE_H_INCLUDED
+#define DEEP_FREEZE_H_INCLUDED
+
 #include "../Spell_Attack.h"
 #include "../../../../include/Status_Effects/Debuffs/Deep_Frozen.h"
 
@@ -13,9 +15,12 @@ namespace lab3 {
       virtual const string get_description() const;
 
       virtual const string perform(Random& ran);
+      virtual ~Deep_Freeze() {}
 
     private:
     protected:
       virtual void apply_collaterals();
   };
 }
+
+#endif // DEEP_FREEZE_H_INCLUDED
