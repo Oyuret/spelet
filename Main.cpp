@@ -56,10 +56,10 @@ int main() {
     cout << frost->get_description()<<endl;
     cout << frost->perform(ran)<<endl;
 
-    //Action* test = healer.pick_action(players, enemies);
+    Action* test = healer.pick_action(players, enemies);
 
-    //cout << test->get_description()<<endl;
-    //cout << test->perform(ran)<<endl;
+    cout << test->get_description()<<endl;
+    cout << test->perform(ran)<<endl;
   }
 
 

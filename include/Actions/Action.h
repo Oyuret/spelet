@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include "../../include/Tools/Random.h"
+#include "../Tools/Balance.h"
 
 namespace lab3 {
 

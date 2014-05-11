@@ -11,7 +11,7 @@ namespace lab3 {
 
   class Polymorph : Spell_Attack {
     public:
-      Polymorph(Actor* source, Actor* target) { _name="Polymorph"; _source = source; _target=target; _damage=0; }
+      Polymorph(Actor* source, Actor* target) {_name = "Polymorph"; _source=source; _target=target; _damage=balance::_dmg_table[_name];}
       virtual const string get_description() const;
 
       virtual const string perform(Random& ran);

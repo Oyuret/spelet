@@ -8,7 +8,7 @@ namespace lab3 {
 
   class Ice_Lance : public Spell_Attack {
     public:
-      Ice_Lance(Actor* source, Actor* target) { _name="Ice Lance"; _source = source; _target=target; _damage=25; }
+      Ice_Lance(Actor* source, Actor* target) { _name="Ice Lance"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
       virtual const string get_description() const;
 
       virtual const string perform(Random& ran);

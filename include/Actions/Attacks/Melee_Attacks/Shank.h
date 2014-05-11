@@ -8,7 +8,7 @@ namespace lab3 {
 
   class Shank : public Melee_Attack {
   public:
-    Shank(Actor* source, Actor* target) { _name = "Shank"; _source=source; _target=target; }
+    Shank(Actor* source, Actor* target) { _name = "Shank"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
     virtual const string get_description() const;
     virtual const string perform(Random& ran);
     virtual ~Shank() {}
