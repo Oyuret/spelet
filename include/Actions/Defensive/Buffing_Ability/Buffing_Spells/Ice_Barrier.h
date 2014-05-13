@@ -13,14 +13,12 @@ namespace lab3 {
   class Ice_Barrier : public Buffing_Ability {
     public:
       Ice_Barrier(Actor* source, Actor* target) { _name="Ice Barrier"; _source = source;
-        _target=target; _armor = balance::_utility_spells[_name]; }
+        _target=target; }
       virtual const string get_description() const;
       virtual const string perform(Random& ran);
       virtual ~Ice_Barrier() {}
     private:
       void apply_collaterals(Random& ran);
-
-      int _armor;
   };
 }
 

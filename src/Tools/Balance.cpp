@@ -26,6 +26,7 @@ namespace balance {
 
    unordered_map<string, int> _utility_spells {
      {"Ice Barrier",50},
+     {"Frozen Armor",25},
      {"Heal",50}
    };
 

@@ -10,6 +10,7 @@
 #include "include\Actions\Attacks\Spell_Attack.h"
 #include "include/Tools/Random.h"
 #include "include\Actions\Action.h"
+#include "include/Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Barrier.h"
 #include <functional>
 #include <stdio.h>
 #include <iostream>
@@ -39,14 +40,15 @@ int main() {
 
   spells["frostbolt"] = [] (Actor* from, Actor* to) -> Action* {return new Frostbolt(from, to);};
   spells["icelance"] = [] (Actor* from, Actor* to) -> Action* {return new Ice_Lance(from, to);};
+  spells["ice_barrier"] = [] (Actor* from, Actor* to) -> Action* {return new Ice_Barrier(from, to);};
 
   Random ran;
 
   Action* frost = spells["frostbolt"](&me, &enemy);
 
-  Action* test2 = sorcerer.pick_action(players, enemies);
+  Action* shield = spells["ice_barrier"](&me, &enemy);
 
-  for(int i =0; i<10; i++) {
+  /*for(int i =0; i<10; i++) {
     test2 = sorcerer.pick_action(players, enemies);
 
     cout << test2->get_description()<<endl;
@@ -60,7 +62,17 @@ int main() {
 
     cout << test->get_description()<<endl;
     cout << test->perform(ran)<<endl;
-  }
+  }*/
+
+  cout << shield->perform(ran) << endl;
+  cout << frost->perform(ran) << endl;
+
+  cout << enemy.get_status() << endl;
+
+  frost = spells["frostbolt"](&me, &enemy);
+  cout << frost->perform(ran) << endl;
+
+  cout << enemy.get_status() << endl;
 
 
   system("pause");

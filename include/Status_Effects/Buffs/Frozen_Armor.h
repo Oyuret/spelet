@@ -3,15 +3,16 @@
 
 #include "../Buff.h"
 #include "../../Actors/Actor.h"
+#include "../Shield.h"
 
 namespace lab3 {
   using namespace std;
 
   class Actor;
 
-  class Frozen_Armor : public Buff {
+  class Frozen_Armor : public Buff, public Shield {
     public:
-      Frozen_Armor() : _armor(50) { _name = "Frozen Armor";}
+      Frozen_Armor() { _name = "Frozen Armor"; _armor = balance::_utility_spells[_name];}
       virtual ~Frozen_Armor() {}
 
       virtual const string get_description() const;
@@ -19,7 +20,6 @@ namespace lab3 {
       // combat stuff
       virtual bool check_immunity(const Action* action) const;
     private:
-      int _armor;
   };
 
 }

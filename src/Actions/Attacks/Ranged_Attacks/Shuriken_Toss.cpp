@@ -14,7 +14,7 @@ namespace lab3 {
     _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     //calculate_action(ran);
     _ss << "The shuriken deals " << _damage << " points of damage to " << _target->get_name() << endl;
-    _target->set_damage(_damage);
+    _target->apply_damage(_damage);
     //apply_collaterals(ran);
     return _ss.str();
   }

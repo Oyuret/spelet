@@ -26,8 +26,8 @@ namespace lab3 {
       double get_health_precent() const;
 
       // modify stats
-      void set_damage(size_t hp);
-      void heal_up(size_t healing_power);
+      const string apply_damage(size_t hp);
+      const string heal_up(size_t healing_power);
 
       // status
       const string get_status() const;

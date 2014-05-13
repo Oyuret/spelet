@@ -8,8 +8,8 @@ namespace lab3 {
     _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     calculate_action(ran);
     _ss << "Frostbolt deals " << _damage << " points of damage to " << _target->get_name() << " ";
-    _target->set_damage(_damage);
     apply_collaterals(ran);
+    _ss << _target->apply_damage(_damage);
     return _ss.str();
   }
 
