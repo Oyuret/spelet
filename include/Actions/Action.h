@@ -21,7 +21,7 @@ namespace lab3 {
       virtual const string get_description() const { return "This is a bogus description"; }
 
       // execute the action
-      virtual const string perform(Random& ran) { return "This is bogus"; }
+      virtual const string perform(Random& ran) {return "bogus";};
 
       virtual ~Action() {}
 

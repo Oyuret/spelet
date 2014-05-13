@@ -37,4 +37,10 @@ namespace balance {
     {"Black Mage", 175},
     {"White Mage", 150}
    };
+
+   unordered_map<string, int> _classes_health {
+    {"Mage", 225},
+    {"Healer", 200}
+   };
+
 }

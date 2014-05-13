@@ -7,7 +7,7 @@ namespace lab3 {
   const string Frostbolt::perform(Random& ran) {
     _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
     calculate_action(ran);
-    _ss << "Frostbolt deals " << _damage << " points of damage to " << _target->get_name() << " ";
+    _ss << _name <<" deals " << _damage << " points of damage to " << _target->get_name() << " ";
     apply_collaterals(ran);
     _ss << _target->apply_damage(_damage);
     return _ss.str();

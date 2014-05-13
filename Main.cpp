@@ -17,6 +17,7 @@
 #include <string>
 #include <map>
 #include <list>
+#include <memory>
 
 using namespace lab3;
 using namespace std;
@@ -44,37 +45,14 @@ int main() {
 
   Random ran;
 
-  Action* frost = spells["frostbolt"](&me, &enemy);
 
-  Action* shield = spells["ice_barrier"](&me, &enemy);
-
-  /*for(int i =0; i<10; i++) {
-    test2 = sorcerer.pick_action(players, enemies);
-
-    cout << test2->get_description()<<endl;
-    cout << test2->perform(ran)<<endl;
-
-    frost = spells["frostbolt"](&me, &enemy);
-    cout << frost->get_description()<<endl;
-    cout << frost->perform(ran)<<endl;
-
-    Action* test = healer.pick_action(players, enemies);
-
-    cout << test->get_description()<<endl;
-    cout << test->perform(ran)<<endl;
-  }*/
-
-  cout << shield->perform(ran) << endl;
-  cout << frost->perform(ran) << endl;
-
-  cout << enemy.get_status() << endl;
-
-  frost = spells["frostbolt"](&me, &enemy);
-  cout << frost->perform(ran) << endl;
-
-  cout << enemy.get_status() << endl;
+  for(int i=0; i<10; i++) {
+    unique_ptr<Action> ptr(sorcerer.pick_action(players,enemies));
+    cout <<ptr->perform(ran)<<endl;
+  }
 
 
+  cout << "Jag är här" << endl;
   system("pause");
   return 0;
 }
