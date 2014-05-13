@@ -14,7 +14,7 @@ namespace lab3 {
    class Enemy : public Actor {
       public:
          virtual Action* pick_action(list<Player*>& players, list<Enemy*>& enemies) {
-            return new Pass();
+            return new Pass(this,this);
          }
          Enemy() {}
          virtual ~Enemy() {}

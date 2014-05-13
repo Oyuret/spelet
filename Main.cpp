@@ -2,8 +2,11 @@
 #include "include/Actors/Enemies/Ranged/Mages/White_Mage.h"
 #include "include/Actors/Enemies/Ranged/Mages/Black_Mage.h"
 #include "include\Actors\Player\Player.h"
+#include "include\Actors\Player\Sorcerer.h"
+#include "include\Actors\Player\Healer.h"
 #include "include\Actions\Attacks\Spell_Attacks\Frostbolt.h"
 #include "include\Actions\Attacks\Spell_Attacks\Ice_Lance.h"
+#include "include\Actions\Attacks\Spell_Attacks\Polymorph.h"
 #include "include\Actions\Defensive\Buffing_Ability\Buffing_Spells\Ice_Block.h"
 #include "include\Status_Effects\Buffs\Frozen_Armor.h"
 #include "include\Status_Effects\Debuffs\Sheeped.h"
@@ -27,21 +30,17 @@ int main() {
   Pirate enemy("Pirate", 200);
   White_Mage healer("Priest",200);
   Black_Mage sorcerer("Sorcerer", 200);
-  Player me("Yuri", "Magikern från berga", 20000);
+  Sorcerer me("Yuri", "Magikern från berga");
+  Healer meme("Yuri2", "Healern från berga");
 
   list<Player*> players;
   list<Enemy*> enemies;
 
   players.push_back(&me);
+  players.push_back(&meme);
   enemies.push_back(&healer);
   enemies.push_back(&enemy);
 
-
-  std::map<std::string, std::function<Action*(Actor*,Actor*)>> spells;
-
-  spells["frostbolt"] = [] (Actor* from, Actor* to) -> Action* {return new Frostbolt(from, to);};
-  spells["icelance"] = [] (Actor* from, Actor* to) -> Action* {return new Ice_Lance(from, to);};
-  spells["ice_barrier"] = [] (Actor* from, Actor* to) -> Action* {return new Ice_Barrier(from, to);};
 
   Random ran;
 
@@ -49,7 +48,13 @@ int main() {
   for(int i=0; i<10; i++) {
     unique_ptr<Action> ptr(sorcerer.pick_action(players,enemies));
     cout <<ptr->perform(ran)<<endl;
+    unique_ptr<Action> spell(me.cast_spell("ice_barrier",&me));
+    cout << spell->perform(ran) << endl;
+    unique_ptr<Action> spell2(meme.cast_spell("absorb",&me));
+    cout << spell2->perform(ran) << endl;
   }
+
+  cout << me.get_status() << endl;
 
 
   cout << "Jag är här" << endl;

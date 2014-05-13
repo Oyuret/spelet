@@ -9,7 +9,7 @@ namespace lab3 {
 
   class Sheeped;
 
-  class Polymorph : Spell_Attack {
+  class Polymorph : public Spell_Attack {
     public:
       Polymorph(Actor* source, Actor* target) {_name = "Polymorph"; _source=source; _target=target; _damage=balance::_dmg_table[_name];}
       virtual const string get_description() const;

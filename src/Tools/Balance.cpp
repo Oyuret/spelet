@@ -20,14 +20,17 @@ namespace balance {
       {"Frostbolt",30},
       {"Ice Lance",25},
       {"Polymorph",0},
-      {"Silence",0}
+      {"Silence",0},
+      {"Smite",25}
 
    };
 
    unordered_map<string, int> _utility_spells {
      {"Ice Barrier",50},
-     {"Frozen Armor",25},
-     {"Heal",50}
+     {"Frozen Armor",50},
+     {"Heal",50},
+     {"Absorb Shield", 90},
+     {"Absorb", 90}
    };
 
    unordered_map<string, int> _health_tables {
@@ -39,7 +42,7 @@ namespace balance {
    };
 
    unordered_map<string, int> _classes_health {
-    {"Mage", 225},
+    {"Sorcerer", 225},
     {"Healer", 200}
    };
 

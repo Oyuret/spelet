@@ -6,7 +6,11 @@ namespace lab3 {
 
   class Pass : public Action {
     public:
-      Pass() {}
+      Pass(Actor* from, Actor* to) {_source = from; _target = to;}
+      virtual const string perform(Random& ran) {
+        _ss << _source->get_name() <<" has nothing to do!" << endl;
+        return _ss.str();
+      }
       virtual ~Pass() {}
     private:
     protected:

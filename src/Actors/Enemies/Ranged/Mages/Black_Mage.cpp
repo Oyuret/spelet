@@ -43,12 +43,17 @@ namespace lab3 {
     // if we reach here nobody was frozen
     // Just cast frost bolt on the enemy with lowest health
     double lowest_health = 2;
-    Player* target;
+    Player* target = nullptr;
     for(Player* player : players) {
         if(player->get_health_precent() < lowest_health && player->is_dead()!=true) {
           target = player;
           lowest_health = player->get_health_precent();
         }
+    }
+
+    // if we got no target. Return a new pass
+    if(target == nullptr) {
+      return new Pass(this,this);
     }
 
     // cast a Frostbolt
