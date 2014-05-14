@@ -79,6 +79,9 @@ int main() {
 
   cout << enemy.get_status() << endl;
 
+  unique_ptr<Action> ptr20(new Dispell(&enemy,&enemy));
+  cout << ptr20->perform(ran) << endl;
+
   unique_ptr<Action> ptr3(enemy.pick_action(players,enemies));
   cout << ptr3->perform(ran) << endl;
 
@@ -89,6 +92,16 @@ int main() {
 
   unique_ptr<Action> ptr15(new Heal(&enemy,&enemy));
   cout << ptr15->perform(ran) << endl;
+
+  unique_ptr<Action> ptr21(new Dispell(&enemy,&enemy));
+  cout << ptr21->perform(ran) << endl;
+
+  enemy.add_debuff(new Frozen());
+
+  unique_ptr<Action> ptr22(new Dispell(&enemy,&enemy));
+  cout << ptr22->perform(ran) << endl;
+
+  cout << enemy.get_status() << endl;
 
   cout << "Jag är här" << endl;
   system("pause");
