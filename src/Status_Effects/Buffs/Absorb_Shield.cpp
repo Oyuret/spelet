@@ -9,8 +9,4 @@ namespace lab3 {
 
     return ss.str();
   }
-
-  bool Absorb_Shield::check_immunity(const Action* action) const {
-    return false;
-  }
 }

@@ -16,8 +16,7 @@ namespace lab3 {
 
       virtual const string get_description() const;
 
-      virtual bool can_perform(const Action* attack) const;
-      virtual bool check_immunity(const Action* action) const;
+      virtual const Status_Effect* can_perform(const Action* attack) const;
 
       virtual void on_dmg(Attack* attack);
     private:

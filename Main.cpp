@@ -27,9 +27,9 @@ using namespace std;
 
 int main() {
 
-  Pirate enemy("Pirate", 200);
+  Pirate enemy2("Pirate", 200);
   White_Mage healer("Priest",200);
-  Black_Mage sorcerer("Sorcerer", 200);
+  Black_Mage enemy("Sorcerer", 200);
   Sorcerer me("Yuri", "Magikern från berga");
   Healer meme("Yuri2", "Healern från berga");
 
@@ -45,17 +45,50 @@ int main() {
   Random ran;
 
 
-  for(int i=0; i<10; i++) {
+  /*for(int i=0; i<10; i++) {
     unique_ptr<Action> ptr(sorcerer.pick_action(players,enemies));
     cout <<ptr->perform(ran)<<endl;
     unique_ptr<Action> spell(me.cast_spell("ice_barrier",&me));
     cout << spell->perform(ran) << endl;
     unique_ptr<Action> spell2(meme.cast_spell("absorb",&me));
     cout << spell2->perform(ran) << endl;
-  }
+  }*/
 
-  cout << me.get_status() << endl;
+  enemy.add_debuff(new Frozen());
 
+  cout << enemy.get_status() << endl;
+
+  unique_ptr<Action> ptr1(me.cast_spell("deep_freeze",&enemy));
+  cout << ptr1->perform(ran) << endl;
+
+  unique_ptr<Action> ptr(me.cast_spell("ice_lance",&enemy));
+  cout << ptr->perform(ran) << endl;
+
+
+
+  cout << enemy.get_status() << endl;
+
+  unique_ptr<Action> ptr2(me.cast_spell("polymorph",&enemy));
+  cout << ptr2->perform(ran) << endl;
+
+  unique_ptr<Action> ptr5(meme.cast_spell("silence",&enemy));
+  cout << ptr5->perform(ran) << endl;
+
+  unique_ptr<Action> ptr4(meme.cast_spell("smite",&enemy));
+  cout << ptr4->perform(ran) << endl;
+
+  cout << enemy.get_status() << endl;
+
+  unique_ptr<Action> ptr3(enemy.pick_action(players,enemies));
+  cout << ptr3->perform(ran) << endl;
+
+  unique_ptr<Action> ptr17(new Ice_Block(&enemy,&enemy));
+  cout << ptr17->perform(ran) << endl;
+
+  cout << enemy.get_status() << endl;
+
+  unique_ptr<Action> ptr15(new Heal(&enemy,&enemy));
+  cout << ptr15->perform(ran) << endl;
 
   cout << "Jag är här" << endl;
   system("pause");

@@ -10,6 +10,9 @@ namespace lab3 {
       size_t get_dmg() const { return _damage; }
       void set_dmg(size_t dmg) { _damage = dmg; }
 
+      virtual void calculate_action(Random& ran);
+      virtual void apply_dmg();
+
       virtual ~Attack() {}
 
     private:

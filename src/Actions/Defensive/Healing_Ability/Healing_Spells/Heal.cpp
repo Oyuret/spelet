@@ -11,15 +11,6 @@ namespace lab3 {
     return ss.str();
   }
 
-  const string Heal::perform(Random& ran) {
-    _ss << _source->get_name() << " casts " << _name << " on " << _target->get_name() << endl;
-    calculate_action(ran);
-    _ss << _source->get_name() << " heals " << _target->get_name() << " for " << _healing_power << endl ;
-    _target->heal_up(_healing_power);
-    apply_collaterals(ran);
-    return _ss.str();
-  }
-
   void Heal::calculate_action(Random& ran) {
 
     // loop through all debuffs and calculate the healing power
@@ -31,9 +22,12 @@ namespace lab3 {
     for(const std::pair<string, Buff*>& tmp : _target->get_buffs()) {
       tmp.second->on_dmg(this);
     }
+
+     _ss << _name <<" heals " << _target->get_name() << " for " << _healing_power;
+
   }
 
-  void Heal::apply_collaterals(Random& ran) {
-    //DO nothing!
+  void Heal::apply_dmg() {
+    _ss << _target->heal_up(_healing_power);
   }
 }

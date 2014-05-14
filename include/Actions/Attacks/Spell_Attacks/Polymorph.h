@@ -13,13 +13,12 @@ namespace lab3 {
     public:
       Polymorph(Actor* source, Actor* target) {_name = "Polymorph"; _source=source; _target=target; _damage=balance::_dmg_table[_name];}
       virtual const string get_description() const;
-
-      virtual const string perform(Random& ran);
       virtual ~Polymorph() {}
     private:
     protected:
-      virtual void calculate_action(Random& ran);
+      virtual void calculate_action(Random& ran) {}
       virtual void apply_collaterals(Random& ran);
+      virtual void apply_dmg() {}
   };
 }
 

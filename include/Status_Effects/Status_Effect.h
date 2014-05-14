@@ -29,16 +29,15 @@ namespace lab3 {
       virtual void on_turn_end() {}
 
       // combat actions
-      //virtual void on_dmg(Action* action) const {}
       virtual void on_dmg(Attack* action) {}
       virtual void on_dmg(Defensive* action) {}
 
 
-      // before we get attacked checks
-      virtual bool check_immunity(const Action* action) const;
+      // Check if the target is immune. Return nullptr if not.
+      virtual const Status_Effect* check_immunity(const Action* action) const;
 
-      // before we attack checks
-      virtual bool can_perform(const Action* action) const;
+      // Check if we can perform. Return nullptr if we can
+      virtual const Status_Effect* can_perform(const Action* action) const;
 
       // getters
       const size_t get_duration() const;

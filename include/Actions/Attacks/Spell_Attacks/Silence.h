@@ -13,12 +13,12 @@ namespace lab3 {
     public:
       Silence(Actor* source, Actor* target) { _name="Silence"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
       virtual const string get_description() const;
-      virtual const string perform(Random& ran);
       virtual ~Silence() {}
     private:
     protected:
-      virtual void calculate_action(Random& ran);
+      virtual void calculate_action(Random& ran) {}
       virtual void apply_collaterals(Random& ran);
+      virtual void apply_dmg() {}
   };
 }
 

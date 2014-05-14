@@ -17,8 +17,6 @@ namespace lab3 {
 
       virtual const string get_description() const;
 
-      // combat stuff
-      virtual bool check_immunity(const Action* action) const;
     private:
   };
 

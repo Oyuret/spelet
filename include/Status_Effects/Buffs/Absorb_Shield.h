@@ -17,9 +17,6 @@ namespace lab3 {
       virtual ~Absorb_Shield() {}
 
       virtual const string get_description() const;
-
-      // combat stuff
-      virtual bool check_immunity(const Action* action) const;
     private:
   };
 

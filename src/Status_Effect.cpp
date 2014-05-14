@@ -25,6 +25,6 @@ namespace lab3 {
     _duration= time;
   }
 
-  bool Status_Effect::check_immunity(const Action* action) const { return false; }
-  bool Status_Effect::can_perform(const Action* action) const { return true; }
+  const Status_Effect* Status_Effect::check_immunity(const Action* action) const { return nullptr; }
+  const Status_Effect* Status_Effect::can_perform(const Action* action) const { return nullptr; }
 }

@@ -7,6 +7,7 @@ namespace lab3 {
   class Defensive : public Action {
     public:
       Defensive() {}
+
       virtual ~Defensive() {}
     private:
   };

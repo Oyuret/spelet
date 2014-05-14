@@ -21,7 +21,7 @@ namespace lab3 {
       virtual const string get_description() const { return "This is a bogus description"; }
 
       // execute the action
-      virtual const string perform(Random& ran) {return "bogus";};
+      virtual const string perform(Random& ran);
 
       virtual ~Action() {}
 
@@ -34,7 +34,8 @@ namespace lab3 {
       Actor* _target;
 
       virtual void calculate_action(Random& ran) {}
-      virtual void apply_collaterals(Random& ran) {}
+      virtual void apply_collaterals(Random& ran);
+      virtual void apply_dmg() {}
   };
 }
 

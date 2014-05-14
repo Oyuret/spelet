@@ -15,10 +15,12 @@ namespace lab3 {
       Ice_Barrier(Actor* source, Actor* target) { _name="Ice Barrier"; _source = source;
         _target=target; }
       virtual const string get_description() const;
-      virtual const string perform(Random& ran);
       virtual ~Ice_Barrier() {}
     private:
-      void apply_collaterals(Random& ran);
+    protected:
+      virtual void calculate_action(Random& ran) {}
+      virtual void apply_collaterals(Random& ran);
+      virtual void apply_dmg() {}
   };
 }
 

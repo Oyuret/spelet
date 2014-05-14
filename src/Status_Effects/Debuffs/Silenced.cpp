@@ -10,17 +10,13 @@ namespace lab3 {
     return ss.str();
   }
 
-  bool Silenced::can_perform(const Action* attack) const {
-    bool value = true;
+  const Status_Effect* Silenced::can_perform(const Action* attack) const {
 
     if(dynamic_cast<const Spell*>(attack)!=0) {
-      value = false;
+      return this;
     }
 
-    return value;
+    return nullptr;
   }
 
-  bool Silenced::check_immunity(const Action* action) const {
-    return false;
-  }
 }

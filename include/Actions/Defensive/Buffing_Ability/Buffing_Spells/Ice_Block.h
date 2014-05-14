@@ -13,12 +13,13 @@ namespace lab3 {
     public:
       Ice_Block(Actor* source, Actor* target) { _name="Ice Block"; _source = source; _target=target; }
       virtual const string get_description() const;
-      virtual const string perform(Random& ran);
 
       virtual ~Ice_Block() {}
 
     private:
-      void apply_collaterals(Random& ran);
+      virtual void calculate_action(Random& ran) {}
+      virtual void apply_collaterals(Random& ran);
+      virtual void apply_dmg() {}
   };
 }
 

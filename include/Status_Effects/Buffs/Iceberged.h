@@ -12,16 +12,15 @@ namespace lab3 {
 
   class Iceberged : public Buff {
     public:
-      Iceberged() { _name = "Iceberged"; _armor=0;}
+      Iceberged() { _name = "Iceberged";}
       virtual ~Iceberged() {}
 
       virtual const string get_description() const;
 
       // combat stuff
-      virtual bool check_immunity(const Action* action) const;
+      virtual const Status_Effect* check_immunity(const Action* action) const;
 
     private:
-      int _armor;
   };
 
 }

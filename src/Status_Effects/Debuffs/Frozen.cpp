@@ -13,18 +13,14 @@ namespace lab3 {
     return ss.str();
   }
 
-  bool Frozen::can_perform(const Action* attack) const {
-    bool value = true;
+  const Status_Effect* Frozen::can_perform(const Action* attack) const {
 
     if(dynamic_cast<const Close_Combat*>(attack)!=0) {
-      value = false;
+      return this;
     }
 
-    return value;
-  }
+    return nullptr;
 
-  bool Frozen::check_immunity(const Action* action) const {
-    return false;
   }
 
   void Frozen::on_dmg(Attack* attack) {

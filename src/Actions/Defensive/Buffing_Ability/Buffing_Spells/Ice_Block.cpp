@@ -4,14 +4,15 @@ namespace lab3 {
 
   class Iceberged;
 
-  const string Ice_Block::perform(Random& ran) {
-    _ss << _source->get_name() << " cast " << _name << " on " << _target->get_name() << endl;
-    apply_collaterals(ran);
-    return _ss.str();
-  }
-
   void Ice_Block::apply_collaterals(Random& ran) {
     _ss << _target->get_name() << " is now safe within a mountain of ice " << endl;
+
+    for(auto& debuffs : _target->get_debuffs()) {
+      Debuff* debuff = debuffs.second;
+      _ss << debuff->get_name() << " fades from " << _target->get_name() << endl;
+      delete debuff;
+    }
+    _target->get_debuffs().clear();
     _target->add_buff(new Iceberged());
   }
 

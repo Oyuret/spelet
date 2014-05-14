@@ -11,13 +11,13 @@ namespace lab3 {
 
   class Deep_Frozen : public Debuff {
     public:
-      Deep_Frozen() { _name = "Frozen"; _duration=10; }
+      Deep_Frozen() { _name = "Deep Frozen"; _duration=10; }
       virtual ~Deep_Frozen() {}
 
       virtual const string get_description() const;
 
-      virtual bool can_perform(const Action* attack) const;
-      virtual bool check_immunity(const Action* action) const;
+      virtual const Status_Effect* can_perform(const Action* attack) const;
+      virtual void on_dmg(Attack* attack);
     private:
   };
 

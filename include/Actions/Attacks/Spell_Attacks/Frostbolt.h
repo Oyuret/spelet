@@ -13,11 +13,9 @@ namespace lab3 {
     public:
       Frostbolt(Actor* source, Actor* target) { _name="Frostbolt"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
       virtual const string get_description() const;
-      virtual const string perform(Random& ran);
       virtual ~Frostbolt() {}
     private:
     protected:
-      virtual void calculate_action(Random& ran);
       virtual void apply_collaterals(Random& ran);
   };
 }

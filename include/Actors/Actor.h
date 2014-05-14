@@ -23,6 +23,7 @@ namespace lab3 {
 
       // stats
       const int get_health() const;
+      const int get_max_health() const;
       double get_health_precent() const;
 
       // modify stats
@@ -37,10 +38,6 @@ namespace lab3 {
       // buffs and debuffs
       void add_buff(Buff*);
       void add_debuff(Debuff*);
-
-      // combat stuff
-      virtual bool can_perform(const Action* action) const;
-      virtual bool is_immune(const Action* action) const;
 
       // checks
       bool is_dead() {return _dead;}
