@@ -10,7 +10,6 @@ namespace lab3 {
   public:
     Katana_Slice(Actor* source, Actor* target) { _name = "Katana Slice"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
     virtual const string get_description() const;
-    virtual const string perform(Random& ran);
     virtual ~Katana_Slice() {}
   private:
   protected:

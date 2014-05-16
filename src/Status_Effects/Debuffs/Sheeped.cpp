@@ -8,7 +8,7 @@ namespace lab3 {
   const string Sheeped::get_description() const {
     ostringstream ss;
 
-    ss << " and is now chewing grass";
+    ss << "and is now chewing grass";
 
     return ss.str();
   }

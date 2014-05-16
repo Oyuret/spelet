@@ -9,6 +9,10 @@ namespace lab3 {
       Buffing_Ability() {}
       virtual ~Buffing_Ability() {}
     private:
+    protected:
+      virtual void calculate_action(Random& ran) {}
+      virtual void apply_dmg() {}
+
   };
 }
 

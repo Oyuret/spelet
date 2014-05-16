@@ -11,12 +11,9 @@ namespace lab3 {
       Heal(Actor* source, Actor* target) { _name="Heal"; _source = source;
         _target=target; _healing_power=balance::_utility_spells[_name];}
       virtual const string get_description() const;
-
       virtual ~Heal() {}
 
     private:
-      virtual void calculate_action(Random& ran);
-      virtual void apply_dmg();
     };
 }
 

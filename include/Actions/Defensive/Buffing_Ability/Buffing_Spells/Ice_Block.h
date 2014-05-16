@@ -17,9 +17,7 @@ namespace lab3 {
       virtual ~Ice_Block() {}
 
     private:
-      virtual void calculate_action(Random& ran) {}
       virtual void apply_collaterals(Random& ran);
-      virtual void apply_dmg() {}
   };
 }
 

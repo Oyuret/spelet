@@ -8,7 +8,7 @@ namespace lab3 {
   const string Iceberged::get_description() const {
     ostringstream ss;
 
-    ss << " and is safe within the mountain of ice";
+    ss << "and is safe within the mountain of ice";
 
     return ss.str();
   }

@@ -13,6 +13,8 @@ namespace lab3 {
       virtual ~Healing_Spell() {}
     private:
     protected:
+      virtual void calculate_action(Random& ran);
+      virtual void apply_dmg();
       size_t _healing_power;
   };
 }

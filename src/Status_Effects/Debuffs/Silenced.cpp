@@ -5,7 +5,7 @@ namespace lab3 {
   const string Silenced::get_description() const {
     ostringstream ss;
 
-    ss << " and cannot cast spells!";
+    ss << "and cannot cast spells!";
 
     return ss.str();
   }
