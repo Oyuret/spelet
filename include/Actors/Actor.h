@@ -40,6 +40,10 @@ namespace lab3 {
       void add_buff(Buff*);
       void add_debuff(Debuff*);
 
+      //turn stuff
+      const string turn_start();
+      const string turn_end();
+
       // checks
       bool is_dead() {return _dead;}
 

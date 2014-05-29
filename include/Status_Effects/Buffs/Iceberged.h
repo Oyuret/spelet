@@ -12,7 +12,7 @@ namespace lab3 {
 
   class Iceberged : public Buff {
     public:
-      Iceberged() { _name = "Iceberged";}
+      Iceberged() { _name = "Iceberged"; _duration=0;}
       virtual ~Iceberged() {}
 
       virtual const string get_description() const;

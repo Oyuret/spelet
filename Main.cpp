@@ -97,6 +97,10 @@ int main() {
 
   cout << enemy.get_status() << endl;
 
+  cout << enemy.turn_start() << endl;
+
+  cout << enemy.get_status() << endl;
+
   unique_ptr<Action> ptr15(new Heal(&enemy,&enemy));
   cout << ptr15->perform(ran) << endl;
 

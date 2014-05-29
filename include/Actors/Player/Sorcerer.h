@@ -7,6 +7,7 @@
 #include "../../Actions/Attacks/Spell_Attacks/Polymorph.h"
 #include "../../Actions/Attacks/Spell_Attacks/Cone_of_Cold.h"
 #include "../../Actions/Attacks/Spell_Attacks/Deep_Freeze.h"
+#include "../../Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Block.h"
 
 #include <unordered_map>
 #include <functional>
@@ -25,7 +26,8 @@ namespace lab3 {
      {"ice_barrier", [] (Actor* from, Actor* to) -> Action* {return new Ice_Barrier(from, to);} },
      {"polymorph", [] (Actor* from, Actor* to) -> Action* {return new Polymorph(from, to);} },
      {"cone_of_cold", [] (Actor* from, Actor* to) -> Action* {return new Cone_of_Cold(from, to);} },
-     {"deep_freeze", [] (Actor* from, Actor* to) -> Action* {return new Deep_Freeze(from, to);} }
+     {"deep_freeze", [] (Actor* from, Actor* to) -> Action* {return new Deep_Freeze(from, to);} } ,
+     {"ice_block", [] (Actor* from, Actor* to) -> Action* {return new Ice_Block(from, from);} }
    };
   protected:
 

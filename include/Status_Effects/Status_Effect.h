@@ -21,7 +21,7 @@ namespace lab3 {
   class Status_Effect {
 
     public:
-      Status_Effect() {}
+      Status_Effect() {_duration = 1;}
       Status_Effect(string name, size_t duration) : _name(name), _duration(duration) {}
 
       // turn actions
