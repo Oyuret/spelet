@@ -8,7 +8,9 @@ namespace lab3 {
 
   class Ninja : public Melee {
     public:
-      Ninja(string name, int health) { _name=name; _description="A skillful ninja!"; _health = health; _max_health = health; }
+      Ninja(string name, int health) { _name=name; _description="A skillful ninja!";
+                                      _health = health; _max_health = health; }
+      virtual Action* pick_action(list<Player*>& players, list<Enemy*>& enemies);
       virtual ~Ninja() {}
     private:
     protected:

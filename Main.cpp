@@ -1,4 +1,5 @@
 #include "include\Actors\Enemies\Melee\Humanoids\Pirate.h"
+#include "include\Actors\Enemies\Melee\Humanoids\Ninja.h"
 #include "include/Actors/Enemies/Ranged/Mages/White_Mage.h"
 #include "include/Actors/Enemies/Ranged/Mages/Black_Mage.h"
 #include "include\Actors\Player\Player.h"
@@ -30,13 +31,11 @@ int main() {
 
 // TODO (Yuri#1#): Fix engine
 
-// TODO (Yuri#1#): Fix removal of polymorph and Iceberged
 
 
-
-  Pirate enemy2("Pirate", 200);
+  Ninja enemy("Ninja", 200);
   White_Mage healer("Priest",200);
-  Black_Mage enemy("Sorcerer", 200);
+  Black_Mage enemy2("Sorcerer", 200);
   Sorcerer me("Yuri", "Magikern från berga");
   Healer meme("Yuri2", "Healern från berga");
 

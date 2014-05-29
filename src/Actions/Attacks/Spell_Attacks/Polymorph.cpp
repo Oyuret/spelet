@@ -8,7 +8,7 @@ namespace lab3 {
 
     _ss << _target->get_name() << " is now a fluffy sheep!" << endl;
     _ss << _target->get_name() << " gets healed to max health!" << endl;
-    _target->heal_up(_target->get_max_health());
+    _ss << _target->heal_up(_target->get_max_health());
     _target->add_debuff(new Sheeped());
   }
 
