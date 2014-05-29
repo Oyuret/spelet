@@ -5,6 +5,7 @@ namespace lab3 {
   class Iceberged;
 
   void Ice_Block::apply_collaterals(Random& ran) {
+
     _ss << _target->get_name() << " is now safe within a mountain of ice " << endl;
 
     for(auto& debuffs : _target->get_debuffs()) {

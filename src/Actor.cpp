@@ -118,6 +118,16 @@ namespace lab3 {
          delete buff;
       }
 
+      // Handle polymorph
+      if(dmg > 0) {
+        if(_debuffs.find("Sheeped")!=_debuffs.end()) {
+          auto sheeped = _debuffs.find("Sheeped");
+          ss << "The damage inflicted broke Sheeped!" << endl;
+          delete sheeped->second;
+          _debuffs.erase("Sheeped");
+        }
+      }
+
       return ss.str();
    }
 

@@ -14,7 +14,7 @@ namespace lab3 {
 
   void Silence::apply_collaterals(Random& ran) {
 
-    _ss << "Silences " << _target->get_name() << endl;
+    _ss << _source->get_name() << " silences " << _target->get_name() << endl;
     _target->add_debuff(new Silenced());
   }
 }

@@ -15,7 +15,8 @@ namespace lab3 {
 
     public:
       Actor() : _dead(false) {}
-      Actor(string name, string description) : _name(name), _description(description), _dead(false) {}
+      Actor(string name, string description, int health) : _name(name), _description(description),
+          _health(health), _max_health(health) , _dead(false) {}
 
       // descriptic
       const string get_name() const;
@@ -42,7 +43,7 @@ namespace lab3 {
       // checks
       bool is_dead() {return _dead;}
 
-       virtual ~Actor();
+      virtual ~Actor();
 
     private:
 

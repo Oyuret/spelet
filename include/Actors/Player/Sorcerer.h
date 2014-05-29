@@ -16,9 +16,7 @@ namespace lab3 {
 
   class Sorcerer : public Player {
   public:
-    Sorcerer(string name, string description) {_name=name;
-        _description=description; _health = balance::_classes_health["Sorcerer"];
-        _max_health = _health; _spells = &_sorcerer_spells;}
+    Sorcerer(string name, string description) : Player(name, description, balance::_classes_health["Sorcerer"]) { _spells = &_sorcerer_spells;}
     virtual ~Sorcerer() {}
   private:
     unordered_map<string,function<Action*(Actor*,Actor*)>> _sorcerer_spells {
