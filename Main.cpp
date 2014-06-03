@@ -51,15 +51,6 @@ int main() {
   Random ran;
 
 
-  /*for(int i=0; i<10; i++) {
-    unique_ptr<Action> ptr(sorcerer.pick_action(players,enemies));
-    cout <<ptr->perform(ran)<<endl;
-    unique_ptr<Action> spell(me.cast_spell("ice_barrier",&me));
-    cout << spell->perform(ran) << endl;
-    unique_ptr<Action> spell2(meme.cast_spell("absorb",&me));
-    cout << spell2->perform(ran) << endl;
-  }*/
-
   enemy.add_debuff(new Frozen());
 
   cout << enemy.get_status() << endl;

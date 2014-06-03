@@ -8,8 +8,8 @@ namespace lab3 {
 
   class Pirate : public Melee {
     public:
-      Pirate(string name, int health) {_name=name; _description="Yarr! A nasty pirate!";
-                                        _health = health; _max_health = health; }
+      Pirate(string name) {_name=name; _description="Yarr! A nasty pirate!";
+                                        _health = _max_health = balance::_health_tables["Pirate"]; }
 
 
       virtual Action* pick_action(list<Player*>& players, list<Enemy*>& enemies);

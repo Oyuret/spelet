@@ -37,13 +37,25 @@ namespace balance {
     {"Pirate", 200},
     {"Robot", 250},
     {"Ninja", 190},
-    {"Black Mage", 175},
-    {"White Mage", 150}
+    {"Black_Mage", 175},
+    {"White_Mage", 150}
    };
 
    unordered_map<string, int> _classes_health {
     {"Sorcerer", 225},
     {"Healer", 200}
+   };
+
+   unordered_map<string, string> _available_classes {
+    {"Sorcerer", "A powerful ranged caster"},
+    {"Healer", "A fierceful healer"}
+   };
+
+   vector<string> _available_enemies {
+     {"White_Mage"},
+     {"Black_Mage"},
+     {"Pirate"},
+     {"Ninja"}
    };
 
 }
