@@ -10,6 +10,7 @@
 #include <sstream>
 #include <algorithm>
 #include <iterator>
+#include <memory>
 
 namespace lab3 {
 
@@ -180,10 +181,34 @@ namespace lab3 {
     cout << endl << "I'm sorry but you have been defeated";
   }
 
+  void Engine::enemy_turn(Enemy* enemy, list<Player*>& players, list<Enemy*>& enemies, Random& ran) const {
+    // Announce who's turn it is
+    cout << endl << "It is " << enemy->get_name() << "'s turn!" << endl;
+
+    // check if dead
+    if(enemy->is_dead()) {
+      cout << enemy->get_name() << " is currently dead and thus passes his turn" << endl;
+      return;
+    }
+
+    // turn start
+    cout << enemy->turn_start() << endl;
+    unique_ptr<Action> spell(enemy->pick_action(players, enemies));
+    cout << spell->perform(ran)<<endl;
+
+    // turn end
+    cout <<enemy->turn_end() << endl;
+
+    // announce turn end
+    cout << enemy->get_name() << "'s turn is over! Going on"<< endl;
+
+
+  }
+
   /**
    * Handles the turn of a player
    */
-  void Engine::player_turn(Player* player, list<Player*>& players, list<Enemy*>& enemies) const {
+  void Engine::player_turn(Player* player, list<Player*>& players, list<Enemy*>& enemies, Random& ran) const {
     // Announce who's turn it is
     cout << endl << "It is " << player->get_name() << "'s turn!" << endl;
 
@@ -220,7 +245,8 @@ namespace lab3 {
         auto command = _commands.find(tokens[0]);
 
         // execute the command
-        used_turn = command->second(player,tokens[1],tokens[3],players,enemies);
+        used_turn = command->second(player,tokens[1],tokens[3],players,enemies,ran);
+        //used_turn= true;
       }
     }
 
@@ -243,6 +269,8 @@ namespace lab3 {
   }
 
   bool Engine::print_status(string who, list<Player*>& players, list<Enemy*>& enemies) const {
+
+    cout << endl;
 
     if(who.compare("party")==0) {
       for(Player* player: players) {
@@ -271,6 +299,57 @@ namespace lab3 {
     cout << "Bad usage! status <party/enemies/all>"<<endl;
     return false;
 
+  }
+
+  bool Engine::print_spells(Player* player) const {
+
+    cout << endl << "Available spells for you:" << endl << endl;
+
+    // print all the spells available to us
+    vector<string> spells = player->get_spells();
+
+    for(string spell : spells) {
+      cout << spell << endl;
+    }
+
+    return false;
+  }
+
+  bool Engine::player_cast(Player* player, string spell, string target, list<Player*>& players,
+                   list<Enemy*>& enemies, Random& ran) const {
+
+
+    // make sure we own the spell
+    vector<string> available_spells = player->get_spells();
+    if(std::find(available_spells.begin(), available_spells.end(), spell)==available_spells.end()) {
+      cout << "You don't have that spell! see spells" << endl;
+      return false;
+    }
+
+    //make sure the target is present
+    Actor* target_ptr = nullptr;
+
+    for(Player* player : players) {
+      if(target.compare(player->get_name())==0) {
+        target_ptr = player;
+      }
+    }
+
+    for(Enemy* player : enemies) {
+      if(target.compare(player->get_name())==0) {
+        target_ptr = player;
+      }
+    }
+
+    if(target_ptr == nullptr) {
+      cout << "Bad target! try again" << endl;
+      return false;
+    }
+
+    unique_ptr<Action> spell_ptr(player->cast_spell(spell,target_ptr));
+    cout << spell_ptr->perform(ran)<<endl;
+
+    return true;
   }
 }
 

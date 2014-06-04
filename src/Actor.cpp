@@ -107,6 +107,9 @@ namespace lab3 {
     _health-=dmg;
     if(_health<=0) {
       _health=0;
+
+      // tell the world we killed the target
+      ss << get_name() << " got killed!" << endl;
       _dead=true;
     }
 

@@ -16,7 +16,8 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-// TODO (Yuri#1#): Add death texts to Actor:deal_dmg
+// TODO (Yuri#1#): Add descriptions table
+// TODO (Yuri#1#): Fix AOE
 
 
   // The random engine and the engine
@@ -59,8 +60,15 @@ int main(int argc, char* argv[]) {
 
     // loop through the players
     for(Player* player : players) {
-      eng.player_turn(player, players, enemies);
+      eng.player_turn(player, players, enemies, ran);
     }
+
+    // loop through all enemies
+    for(Enemy* enemy : enemies) {
+      eng.enemy_turn(enemy, players, enemies, ran);
+    }
+
+
     running = false;
 
   }
