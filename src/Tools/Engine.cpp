@@ -44,7 +44,8 @@ namespace lab3 {
     string tmp_line;
 
     // Continue with the intro
-    cout << "How many enemies would you like to face? (max 4)" << endl;
+    cout << endl <<"How many enemies would you like to face? (max 4)" << endl;
+    cout << "input>> ";
 
     // retrieve the number of enemies
     getline(cin,tmp_line);
@@ -56,6 +57,7 @@ namespace lab3 {
     while(nr < 1 || nr > 4) {
       cout << "I'm sorry. I won't accept anything below 1 or above 4" << endl;
       cout << "Again; How many enemies would you like to face?" << endl;
+      cout << "input>> ";
 
       // retrieve the number of enemies
       getline(cin,tmp_line);
@@ -90,6 +92,7 @@ namespace lab3 {
 
     // as how many players there are.
     cout << "How many heroes are there in your group?" << endl;
+    cout << "input>> ";
 
     // retrieve the number of players
     getline(cin,tmp_line);
@@ -101,6 +104,7 @@ namespace lab3 {
     while(nr < 1) {
       cout << endl <<"I'm sorry. I won't accept anything less than 1" << endl;
       cout << "Again, how many players are there in your group?" << endl;
+      cout << "input>> ";
       // retrieve the number of players
       getline(cin,tmp_line);
 
@@ -119,15 +123,19 @@ namespace lab3 {
       string character_class;
 
       cout << endl << "What is the name of player nr " << i+1 << " ?" << endl;
+      cout << "input>> ";
       getline(cin, name);
       cout << endl << "How would you describe yourself?" << endl;
+      cout << "input>> ";
       getline(cin, description);
       cout << endl <<"Which class would you like to play?" << endl;
       cout << "available classes are:" << endl << endl;
 
       for(auto& char_class : balance::_available_classes) {
-        cout << char_class.first << ". " << char_class.second << endl;
+        cout << ">> " <<char_class.first << ". " << char_class.second << endl;
       }
+
+      cout << "input>> ";
 
       getline(cin, character_class);
 
@@ -136,7 +144,7 @@ namespace lab3 {
         cout << endl << "Couldn't find that class! available classes are:" << endl << endl;
 
         for(auto& char_class : balance::_available_classes) {
-          cout << char_class.first << ". " << char_class.second << endl;
+          cout << ">> " <<char_class.first << ". " << char_class.second << endl;
         }
 
         getline(cin, character_class);
@@ -183,6 +191,7 @@ namespace lab3 {
 
   void Engine::enemy_turn(Enemy* enemy, list<Player*>& players, list<Enemy*>& enemies, Random& ran) const {
     // Announce who's turn it is
+    cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
     cout << endl << "It is " << enemy->get_name() << "'s turn!" << endl;
 
     // check if dead
@@ -210,6 +219,7 @@ namespace lab3 {
    */
   void Engine::player_turn(Player* player, list<Player*>& players, list<Enemy*>& enemies, Random& ran) const {
     // Announce who's turn it is
+    cout << endl <<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
     cout << endl << "It is " << player->get_name() << "'s turn!" << endl;
 
     // check if dead
@@ -227,6 +237,7 @@ namespace lab3 {
       string tmp_line;
 
       cout << endl <<"Input your command" << endl;
+      cout << "input>>";
       getline(cin, tmp_line);
 
       // tokenize the input
@@ -260,9 +271,9 @@ namespace lab3 {
 
   bool Engine::print_usage() const {
     cout << endl << "Usage:" << endl;
-    cout << "Status <party/enemies/all>: Prints the current status of the party, the enemies or all together" << endl;
-    cout << "Describe <party member/enemy/spell/status effect>: describes the given parameter" << endl;
-    cout << "cast <spells> on <target>: Casts the given spell on the target" << endl;
+    cout << "status <party/enemies/all>: Prints the current status for param" << endl;
+    cout << "describe <param>: describes the given parameter" << endl;
+    cout << "cast <spell> on <target>: Casts the given spell on the target" << endl;
     cout << "spells: Prints a list of your given spells as your class" << endl;
     cout << "quit: quits the game" << endl;
     return false;
@@ -385,6 +396,8 @@ namespace lab3 {
   }
 
   bool Engine::print_description(string what, list<Player*>& players, list<Enemy*>& enemies) const {
+
+    cout << endl;
 
     // Try to describe a player
     for(Player* player : players) {
