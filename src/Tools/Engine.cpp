@@ -316,7 +316,7 @@ namespace lab3 {
   }
 
   bool Engine::player_cast(Player* player, string spell, string target, list<Player*>& players,
-                   list<Enemy*>& enemies, Random& ran) const {
+                           list<Enemy*>& enemies, Random& ran) const {
 
 
     // make sure we own the spell
@@ -339,6 +339,21 @@ namespace lab3 {
       if(target.compare(player->get_name())==0) {
         target_ptr = player;
       }
+    }
+
+    // FULHACK VISSA SPELLS UTAN TARGET
+    if( spell.compare("ice_barrier") ==0 ) {
+
+      unique_ptr<Action> spell_ptr(player->cast_spell(spell,player));
+      cout << spell_ptr->perform(ran)<<endl;
+      return true;
+    }
+
+    if( spell.compare("ice_block") ==0 ) {
+
+      unique_ptr<Action> spell_ptr(player->cast_spell(spell,player));
+      cout << spell_ptr->perform(ran)<<endl;
+      return true;
     }
 
     // FULHACK AOE

@@ -24,18 +24,15 @@ int main(int argc, char* argv[]) {
   list<Player*> players;
   list<Enemy*> enemies;
 
-  // bookkeeping
-  int _nr_of_players;
-  int _nr_of_enemies;
 
   // play the intro
   eng.play_intro();
 
   // create players
-  _nr_of_players = eng.create_players(players);
+  eng.create_players(players);
 
   // Create the enemies
-  _nr_of_enemies = eng.create_enemies(enemies);
+  eng.create_enemies(enemies);
 
 
   // loop the game
