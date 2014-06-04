@@ -5,6 +5,11 @@
 #include "../../include/Actors/Enemies/Melee/Humanoids/Pirate.h"
 #include "../../include/Actors/Enemies/Ranged/Mages/Black_Mage.h"
 #include "../../include/Actors/Enemies/Ranged/Mages/White_Mage.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <iterator>
 
 namespace lab3 {
 
@@ -143,6 +148,129 @@ namespace lab3 {
 
     // return the number of players
     return nr;
+  }
+
+  bool Engine::all_dead(list<Player*>& players) const {
+    bool all_dead = true;
+
+    for(Actor* actor: players) {
+      if(actor->is_dead() != true) {
+        all_dead = false;
+      }
+    }
+    return all_dead;
+  }
+
+  bool Engine::all_dead(list<Enemy*>& players) const {
+    bool all_dead = true;
+
+    for(Actor* actor: players) {
+      if(actor->is_dead() != true) {
+        all_dead = false;
+      }
+    }
+    return all_dead;
+  }
+
+  void Engine::announce_win() const {
+    cout << endl << "Congratulations! You have defeated all the enemies";
+  }
+
+  void Engine::announce_defeat() const {
+    cout << endl << "I'm sorry but you have been defeated";
+  }
+
+  /**
+   * Handles the turn of a player
+   */
+  void Engine::player_turn(Player* player, list<Player*>& players, list<Enemy*>& enemies) const {
+    // Announce who's turn it is
+    cout << endl << "It is " << player->get_name() << "'s turn!" << endl;
+
+    // check if dead
+    if(player->is_dead()) {
+      cout << player->get_name() << " is currently dead and thus passes his turn" << endl;
+      return;
+    }
+
+    // turn start
+    cout << player->turn_start() << endl;
+
+    // get the command and perform it
+    bool used_turn = false;
+    while(!used_turn) {
+      string tmp_line;
+
+      cout << endl <<"Input your command" << endl;
+      getline(cin, tmp_line);
+
+      // tokenize the input
+      istringstream iss(tmp_line);
+      vector<string> tokens {istream_iterator<string>{iss},
+                             istream_iterator<string>{}
+                            };
+
+      // if the command exists
+      if(_commands.find(tokens[0])==_commands.end()) {
+        cout << endl << "bad usage! try again" << endl;
+      } else {
+
+        // add padding to the commands
+        while(tokens.size()<4) tokens.push_back("");
+        auto command = _commands.find(tokens[0]);
+
+        // execute the command
+        used_turn = command->second(player,tokens[1],tokens[3],players,enemies);
+      }
+    }
+
+    // turn end
+    cout << endl <<player->turn_end() << endl;
+
+    // announce turn end
+    cout << player->get_name() << "'s turn is over! Going on"<< endl;
+
+  }
+
+  bool Engine::print_usage() const {
+    cout << endl << "Usage:" << endl;
+    cout << "Status <party/enemies/all>: Prints the current status of the party, the enemies or all together" << endl;
+    cout << "Describe <party member/enemy/spell/status effect>: describes the given parameter" << endl;
+    cout << "cast <spells> on <target>: Casts the given spell on the target" << endl;
+    cout << "spells: Prints a list of your given spells as your class" << endl;
+    cout << "quit: quits the game" << endl;
+    return false;
+  }
+
+  bool Engine::print_status(string who, list<Player*>& players, list<Enemy*>& enemies) const {
+
+    if(who.compare("party")==0) {
+      for(Player* player: players) {
+        cout << player->get_status()<< endl;
+      }
+      return false;
+    }
+
+    if(who.compare("enemies")==0) {
+      for(Enemy* player: enemies) {
+        cout << player->get_status()<< endl;
+      }
+      return false;
+    }
+
+    if(who.compare("all")==0) {
+      for(Player* player: players) {
+        cout << player->get_status()<< endl;
+      }
+      for(Enemy* player: enemies) {
+        cout << player->get_status()<< endl;
+      }
+      return false;
+    }
+
+    cout << "Bad usage! status <party/enemies/all>"<<endl;
+    return false;
+
   }
 }
 

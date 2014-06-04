@@ -16,26 +16,20 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-  // The random engine
-  Random ran;
+// TODO (Yuri#1#): Add death texts to Actor:deal_dmg
 
-  // the engine used to run this thing
+
+  // The random engine and the engine
+  Random ran;
   Engine eng;
 
-  // the list containing the players
+  // lists containing actors
   list<Player*> players;
-
-  // the list containing the enemies
   list<Enemy*> enemies;
 
-  // the number of players
+  // bookkeeping
   int _nr_of_players;
-
-  // the number of enemies
   int _nr_of_enemies;
-
-  // the temp string used to get lines
-  string tmp_line;
 
   // play the intro
   eng.play_intro();
@@ -47,32 +41,31 @@ int main(int argc, char* argv[]) {
   _nr_of_enemies = eng.create_enemies(enemies);
 
 
-  // tests
-  for(Player* player : players) {
-    cout << player->get_status() << endl;
-  }
+  // loop the game
+  bool running = true;
+  while(running) {
 
-  for(Enemy* enemy : enemies) {
-    cout << enemy->get_status() << endl;
-  }
-
-  for(Player* player : players) {
-    for(Enemy* enemy : enemies) {
-      unique_ptr<Action> pl(player->cast_spell("frostbolt",enemy));
-      cout << pl->perform(ran) << endl;
-      unique_ptr<Action> en(enemy->pick_action(players, enemies));
-      cout << en->perform(ran) << endl;
+    // check if all players are dead
+    if(eng.all_dead(players)) {
+      eng.announce_defeat();
+      break;
     }
 
+    // check if all enemies are dead
+    if(eng.all_dead(enemies)) {
+      eng.announce_win();
+      break;
+    }
+
+    // loop through the players
+    for(Player* player : players) {
+      eng.player_turn(player, players, enemies);
+    }
+    running = false;
+
   }
 
-  for(Player* player : players) {
-    cout << player->get_status() << endl;
-  }
 
-  for(Enemy* enemy : enemies) {
-    cout << enemy->get_status() << endl;
-  }
 
 
 
