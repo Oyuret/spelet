@@ -9,8 +9,6 @@ namespace lab3 {
   class Ice_Lance : public Spell_Attack {
     public:
       Ice_Lance(Actor* source, Actor* target) { _name="ice_lance"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
-      virtual const string get_description() const;
-
       virtual ~Ice_Lance() {}
     private:
     protected:

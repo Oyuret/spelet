@@ -12,9 +12,8 @@ namespace lab3 {
 
   class Ice_Barrier : public Buffing_Ability {
     public:
-      Ice_Barrier(Actor* source, Actor* target) { _name="Ice Barrier"; _source = source;
+      Ice_Barrier(Actor* source, Actor* target) { _name="ice_barrier"; _source = source;
         _target=target; }
-      virtual const string get_description() const;
       virtual ~Ice_Barrier() {}
     private:
     protected:

@@ -10,11 +10,4 @@ namespace lab3 {
     _target->add_buff(new Frozen_Armor());
   }
 
-  const string Ice_Barrier::get_description() const {
-    ostringstream ss;
-
-    ss << "Grants you" << balance::_utility_spells[_name] << " armor";
-
-    return ss.str();
-  }
 }

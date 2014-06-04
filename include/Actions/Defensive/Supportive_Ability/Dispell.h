@@ -9,8 +9,6 @@ namespace lab3 {
   class Dispell : public Defensive_Spell {
     public:
       Dispell(Actor* source, Actor* target) { _name="Dispell"; _source = source; _target=target; }
-      virtual const string get_description() const;
-
       virtual ~Dispell() {}
     private:
     protected:

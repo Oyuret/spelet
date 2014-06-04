@@ -8,9 +8,8 @@ namespace lab3 {
 
   class Heal : public Healing_Spell {
     public:
-      Heal(Actor* source, Actor* target) { _name="Heal"; _source = source;
+      Heal(Actor* source, Actor* target) { _name="heal"; _source = source;
         _target=target; _healing_power=balance::_utility_spells[_name];}
-      virtual const string get_description() const;
       virtual ~Heal() {}
 
     private:

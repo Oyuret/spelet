@@ -17,11 +17,4 @@ namespace lab3 {
     _target->add_buff(new Iceberged());
   }
 
-  const string Ice_Block::get_description() const {
-    ostringstream ss;
-
-    ss << "Removes all debuffs on the target and makes it immune to dmg until next turn";
-
-    return ss.str();
-  }
 }

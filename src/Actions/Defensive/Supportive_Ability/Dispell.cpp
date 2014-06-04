@@ -3,9 +3,6 @@
 #include "../../../../include/Actors/Actor.h"
 
 namespace lab3 {
-   const string Dispell::get_description() const {
-      return "Removes a negative effect on the target";
-   }
 
    void Dispell::apply_collaterals(Random& ran) {
       if(_target->get_debuffs().size() == 0) {

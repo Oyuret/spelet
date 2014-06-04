@@ -16,10 +16,6 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-// TODO (Yuri#1#): Add descriptions table
-// TODO (Yuri#1#): Fix AOE
-
-
   // The random engine and the engine
   Random ran;
   Engine eng;
@@ -67,9 +63,6 @@ int main(int argc, char* argv[]) {
     for(Enemy* enemy : enemies) {
       eng.enemy_turn(enemy, players, enemies, ran);
     }
-
-
-    running = false;
 
   }
 

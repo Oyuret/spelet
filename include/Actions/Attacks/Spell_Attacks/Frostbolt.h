@@ -12,7 +12,6 @@ namespace lab3 {
   class Frostbolt : public Spell_Attack {
     public:
       Frostbolt(Actor* source, Actor* target) { _name="frostbolt"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
-      virtual const string get_description() const;
       virtual ~Frostbolt() {}
     private:
     protected:

@@ -3,11 +3,4 @@
 
 namespace lab3 {
 
-  const string Katana_Slice::get_description() const {
-    ostringstream ss;
-
-    ss << "A swift, silent, yet deadly attack. Deals " << get_dmg() << " damage to an enemy";
-
-    return ss.str();
-  }
 }

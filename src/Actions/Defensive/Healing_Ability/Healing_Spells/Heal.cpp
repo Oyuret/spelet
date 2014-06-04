@@ -3,11 +3,5 @@
 
 namespace lab3 {
 
-  const string Heal::get_description() const {
-    ostringstream ss;
 
-    ss << "Heals the target for " << _healing_power << " health points";
-
-    return ss.str();
-  }
 }

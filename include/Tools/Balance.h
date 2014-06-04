@@ -14,6 +14,8 @@ namespace balance {
    extern unordered_map<string, string> _available_classes;
    extern vector<string> _available_enemies;
 
+   extern unordered_map<string, string> _descriptions;
+
 }
 
 

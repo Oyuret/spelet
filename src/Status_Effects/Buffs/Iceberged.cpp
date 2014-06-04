@@ -2,8 +2,6 @@
 
 namespace lab3 {
 
-// TODO (Yuri#1#): Fix removal of Iceberged
-
 
   const string Iceberged::get_description() const {
     ostringstream ss;

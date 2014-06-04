@@ -24,7 +24,7 @@ namespace lab3 {
     unordered_map<string,function<Action*(Actor*,Actor*)>> _sorcerer_spells {
      {"frostbolt", [] (Actor* from, Actor* to) -> Action* {return new Frostbolt(from, to);} },
      {"ice_lance", [] (Actor* from, Actor* to) -> Action* {return new Ice_Lance(from, to);} },
-     {"ice_barrier", [] (Actor* from, Actor* to) -> Action* {return new Ice_Barrier(from, to);} },
+     {"ice_barrier", [] (Actor* from, Actor* to) -> Action* {return new Ice_Barrier(from, from);} },
      {"polymorph", [] (Actor* from, Actor* to) -> Action* {return new Polymorph(from, to);} },
      {"cone_of_cold", [] (Actor* from, Actor* to) -> Action* {return new Cone_of_Cold(from, to);} },
      {"deep_freeze", [] (Actor* from, Actor* to) -> Action* {return new Deep_Freeze(from, to);} } ,

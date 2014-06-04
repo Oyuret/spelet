@@ -368,5 +368,33 @@ namespace lab3 {
 
     return true;
   }
+
+  bool Engine::print_description(string what, list<Player*>& players, list<Enemy*>& enemies) const {
+
+    // Try to describe a player
+    for(Player* player : players) {
+      if(what.compare(player->get_name())==0) {
+        cout << player->get_description() << endl;
+        return false;
+      }
+    }
+
+    // Try to describe an enemy
+    for(Enemy* enemy : enemies) {
+      if(what.compare(enemy->get_name())==0) {
+        cout << enemy->get_description() << endl;
+        return false;
+      }
+    }
+
+    // try to describe a spell
+    if(balance::_descriptions.find(what) != balance::_descriptions.end()) {
+      cout << balance::_descriptions[what] << endl;
+      return false;
+    } else {
+      cout << "Bad usage! describe <what>" << endl;
+    }
+    return false;
+  }
 }
 

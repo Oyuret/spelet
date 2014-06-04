@@ -9,7 +9,6 @@ namespace lab3 {
   class Bottle_Toss : public Ranged_Attack {
   public:
     Bottle_Toss(Actor* source, Actor* target) { _name = "bottle_toss"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
-    virtual const string get_description() const;
     virtual ~Bottle_Toss() {}
   private:
   protected:

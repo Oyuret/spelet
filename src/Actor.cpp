@@ -39,7 +39,10 @@ namespace lab3 {
   }
 
   const string Actor::get_description() const {
-    return _description;
+    ostringstream ss;
+    ss << "You see " << get_name() << " who is " << _description;
+
+    return ss.str();
   }
 
   const int Actor::get_health() const {

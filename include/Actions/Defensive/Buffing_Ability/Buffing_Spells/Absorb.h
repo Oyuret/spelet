@@ -11,9 +11,8 @@ namespace lab3 {
 
   class Absorb : public Buffing_Ability {
     public:
-      Absorb(Actor* source, Actor* target) { _name="Absorb"; _source = source;
+      Absorb(Actor* source, Actor* target) { _name="absorb"; _source = source;
         _target=target; }
-      virtual const string get_description() const;
       virtual ~Absorb() {}
     private:
     protected:

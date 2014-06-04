@@ -27,11 +27,6 @@ using namespace lab3;
 using namespace std;
 
 int main() {
-// TODO (Yuri#1#): Fix AOE
-
-// TODO (Yuri#1#): Fix engine
-
-
 
   Ninja enemy("Ninja", 200);
   White_Mage healer("Priest",200);

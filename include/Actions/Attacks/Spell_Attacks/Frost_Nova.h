@@ -12,7 +12,6 @@ namespace lab3 {
   class Frost_Nova : public Spell_Attack {
     public:
       Frost_Nova(Actor* source, Actor* target) { _name="frost_nova"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
-      virtual const string get_description() const;
       virtual ~Frost_Nova() {}
     private:
     protected:

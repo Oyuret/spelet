@@ -9,12 +9,4 @@ namespace lab3 {
         << balance::_utility_spells[_name] << " armor points" << endl;
     _target->add_buff(new Absorb_Shield());
   }
-
-  const string Absorb::get_description() const {
-    ostringstream ss;
-
-    ss << "Grants you" << balance::_utility_spells[_name] << " armor";
-
-    return ss.str();
-  }
 }

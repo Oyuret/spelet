@@ -36,7 +36,7 @@ namespace lab3 {
     Enemy* create_enemy(string class_name, string name) const;
 
     bool print_usage() const;
-    bool print_description(string what) const { return true;}
+    bool print_description(string what, list<Player*>& players, list<Enemy*>& enemies) const;
     bool print_status(string who, list<Player*>& players, list<Enemy*>& enemies) const;
     bool print_spells(Player* player) const;
     bool player_cast(Player* player, string spell, string target, list<Player*>& players, list<Enemy*>& enemies, Random& ran) const;
@@ -48,7 +48,7 @@ namespace lab3 {
 
       {"describe", [this] (Player* player, string spell, string target,
                            list<Player*>& players, list<Enemy*>& enemies, Random& ran)
-                           -> bool {return print_description(spell);}},
+                           -> bool {return print_description(spell, players, enemies);}},
 
       {"usage", [this] (Player* player, string spell, string target,
                         list<Player*>& players, list<Enemy*>& enemies, Random& ran)

@@ -26,12 +26,4 @@ namespace lab3 {
 
 
   }
-
-  const string Deep_Freeze::get_description() const {
-    ostringstream ss;
-
-    ss << "Turns a Frozen enemy into a popsicle";
-
-    return ss.str();
-  }
 }

@@ -12,7 +12,6 @@ namespace lab3 {
   class Deep_Freeze : public Spell_Attack {
     public:
       Deep_Freeze(Actor* source, Actor* target) { _name="deep_freeze"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
-      virtual const string get_description() const;
       virtual ~Deep_Freeze() {}
 
     private:

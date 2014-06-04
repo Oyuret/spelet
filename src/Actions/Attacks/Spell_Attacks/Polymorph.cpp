@@ -12,11 +12,4 @@ namespace lab3 {
     _target->add_debuff(new Sheeped());
   }
 
-  const string Polymorph::get_description() const {
-    ostringstream ss;
-
-    ss << "Turns the targeted enemy into a fluffy sheep. Heals the target to full health. Any damage will break the effect";
-
-    return ss.str();
-  }
 }
