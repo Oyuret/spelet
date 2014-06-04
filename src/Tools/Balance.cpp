@@ -5,32 +5,32 @@ namespace balance {
   unordered_map<string, int> _dmg_table {
 
       // Melee Attacks
-      {"Katana Slice", 50},
-      {"Shank", 45},
+      {"katana_slice", 50},
+      {"shank", 45},
 
       // Ranged Attacks
-      {"Bottle Toss", 35},
-      {"Shuriken Toss",35},
+      {"bottle_toss", 35},
+      {"shuriken_toss",35},
 
 
       // Spell attacks
-      {"Cone of Cold",25},
-      {"Deep Freeze",0},
-      {"Frost Nova",20},
-      {"Frostbolt",30},
-      {"Ice Lance",25},
-      {"Polymorph",0},
-      {"Silence",0},
-      {"Smite",25}
+      {"cone_of_cold",25},
+      {"deep_freeze",0},
+      {"frost_nova",20},
+      {"frostbolt",30},
+      {"ice_lance",25},
+      {"polymorph",0},
+      {"silence",0},
+      {"smite",25}
 
    };
 
    unordered_map<string, int> _utility_spells {
-     {"Ice Barrier",50},
-     {"Frozen Armor",50},
-     {"Heal",50},
-     {"Absorb Shield", 90},
-     {"Absorb", 90}
+     {"ice_barrier",50},
+     {"frozen_armor",50},
+     {"heal",50},
+     {"absorb_shield", 90},
+     {"absorb", 90}
    };
 
    unordered_map<string, int> _health_tables {

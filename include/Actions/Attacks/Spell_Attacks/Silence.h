@@ -11,7 +11,7 @@ namespace lab3 {
 
   class Silence : public Spell_Attack {
     public:
-      Silence(Actor* source, Actor* target) { _name="Silence"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
+      Silence(Actor* source, Actor* target) { _name="silence"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
       virtual const string get_description() const;
       virtual ~Silence() {}
     private:

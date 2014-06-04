@@ -8,7 +8,7 @@ namespace lab3 {
 
   class Shuriken_Toss : public Ranged_Attack {
   public:
-    Shuriken_Toss(Actor* source, Actor* target) { _name = "Shuriken toss"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
+    Shuriken_Toss(Actor* source, Actor* target) { _name = "shuriken_toss"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
     virtual const string get_description() const;
     virtual ~Shuriken_Toss() {}
   private:

@@ -8,7 +8,7 @@ namespace lab3 {
 
   class Smite : public Spell_Attack {
     public:
-      Smite(Actor* source, Actor* target) { _name="Smite"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
+      Smite(Actor* source, Actor* target) { _name="smite"; _source = source; _target=target; _damage=balance::_dmg_table[_name]; }
       virtual const string get_description() const;
 
       virtual ~Smite() {}

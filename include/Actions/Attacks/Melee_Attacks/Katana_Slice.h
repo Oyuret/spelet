@@ -8,7 +8,7 @@ namespace lab3 {
 
   class Katana_Slice : public Melee_Attack {
   public:
-    Katana_Slice(Actor* source, Actor* target) { _name = "Katana Slice"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
+    Katana_Slice(Actor* source, Actor* target) { _name = "katana_slice"; _source=source; _target=target; _damage = balance::_dmg_table[_name];}
     virtual const string get_description() const;
     virtual ~Katana_Slice() {}
   private:

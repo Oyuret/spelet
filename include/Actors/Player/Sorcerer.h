@@ -6,6 +6,7 @@
 #include "../../Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Barrier.h"
 #include "../../Actions/Attacks/Spell_Attacks/Polymorph.h"
 #include "../../Actions/Attacks/Spell_Attacks/Cone_of_Cold.h"
+#include "../../Actions/Attacks/Spell_Attacks/Frost_Nova.h"
 #include "../../Actions/Attacks/Spell_Attacks/Deep_Freeze.h"
 #include "../../Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Block.h"
 
@@ -27,7 +28,8 @@ namespace lab3 {
      {"polymorph", [] (Actor* from, Actor* to) -> Action* {return new Polymorph(from, to);} },
      {"cone_of_cold", [] (Actor* from, Actor* to) -> Action* {return new Cone_of_Cold(from, to);} },
      {"deep_freeze", [] (Actor* from, Actor* to) -> Action* {return new Deep_Freeze(from, to);} } ,
-     {"ice_block", [] (Actor* from, Actor* to) -> Action* {return new Ice_Block(from, from);} }
+     {"ice_block", [] (Actor* from, Actor* to) -> Action* {return new Ice_Block(from, from);} },
+     {"frost_nova", [] (Actor* from, Actor* to) -> Action* {return new Frost_Nova(from, to);} }
    };
   protected:
 

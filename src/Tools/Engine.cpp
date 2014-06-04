@@ -341,6 +341,23 @@ namespace lab3 {
       }
     }
 
+    // FULHACK AOE
+    if( spell.compare("cone_of_cold") ==0 ) {
+      for(Enemy* enemy : enemies) {
+        unique_ptr<Action> spell_ptr(player->cast_spell(spell,enemy));
+        cout << spell_ptr->perform(ran)<<endl;
+      }
+      return true;
+    }
+
+    if( spell.compare("frost_nova") == 0 ) {
+      for(Enemy* enemy : enemies) {
+        unique_ptr<Action> spell_ptr(player->cast_spell(spell,enemy));
+        cout << spell_ptr->perform(ran)<<endl;
+      }
+      return true;
+    }
+
     if(target_ptr == nullptr) {
       cout << "Bad target! try again" << endl;
       return false;
