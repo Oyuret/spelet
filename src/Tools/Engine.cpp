@@ -191,7 +191,7 @@ namespace lab3 {
 
   void Engine::enemy_turn(Enemy* enemy, list<Player*>& players, list<Enemy*>& enemies, Random& ran) const {
     // Announce who's turn it is
-    cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+    cout << endl <<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
     cout << endl << "It is " << enemy->get_name() << "'s turn!" << endl;
 
     // check if dead

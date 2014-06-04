@@ -1,6 +1,6 @@
-#include "../include/Actors/Actor.h"
-#include "../include/Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Block.h"
-#include "../include/Status_Effects/Shield.h"
+#include "../../include/Actors/Actor.h"
+#include "../../include/Actions/Defensive/Buffing_Ability/Buffing_Spells/Ice_Block.h"
+#include "../../include/Status_Effects/Shield.h"
 #include <list>
 
 namespace lab3 {

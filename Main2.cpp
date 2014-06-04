@@ -63,11 +63,6 @@ int main(int argc, char* argv[]) {
 
   }
 
-
-
-
-
-
   // We quit the game. Destroy eveything and return
   eng.destroy_elements(players,enemies);
   return 0;
