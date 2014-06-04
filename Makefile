@@ -19,7 +19,7 @@ LIB =
 LDFLAGS = 
 
 INC_DEBUG = $(INC)
-CFLAGS_DEBUG = $(CFLAGS) -std=c++11 -Wall -pg -g
+CFLAGS_DEBUG = $(CFLAGS) -std=c++0x -Wall -pg -g
 RESINC_DEBUG = $(RESINC)
 RCFLAGS_DEBUG = $(RCFLAGS)
 LIBDIR_DEBUG = $(LIBDIR)
