@@ -11,16 +11,17 @@ namespace lab3 {
   public:
     Engine() {}
 
-    void create_players(list<Player*>& players, int nr);
-    void create_enemies(list<Enemy*>& enemies, int nr);
-
+    void play_intro() const;
+    int create_players(list<Player*>& players) const;
+    int create_enemies(list<Enemy*>& enemies) const;
     void destroy_elements(list<Player*>& players, list<Enemy*> enemies);
 
     ~Engine() {}
 
   private:
-    Player* create_player(string class_name, string name, string description);
-    Enemy* create_enemy(string class_name, string name);
+    Player* create_player(string class_name, string name, string description) const;
+    Enemy* create_enemy(string class_name, string name) const;
+
   protected:
 
   };

@@ -3,16 +3,21 @@
 #include <string>
 #include <stdlib.h>
 #include <list>
+#include <memory>
 
 #include "include/Actors/Enemies/Enemy.h"
 #include "include/Actors/Player/Player.h"
 #include "include/Tools/Balance.h"
 #include "include/Tools/Engine.h"
+#include "include/Tools/Random.h"
 
 using namespace lab3;
 using namespace std;
 
 int main(int argc, char* argv[]) {
+
+  // The random engine
+  Random ran;
 
   // the engine used to run this thing
   Engine eng;
@@ -32,36 +37,35 @@ int main(int argc, char* argv[]) {
   // the temp string used to get lines
   string tmp_line;
 
-  // Present the game
-  cout << "Welcome to the arena! You are about to face a set of" << endl;
-  cout << "fearless enemies. How many heroes are in your group?" << endl;
-
-  // retrieve the number of players
-  getline(cin,tmp_line);
-
-  // get the number
-  _nr_of_players = atoi(tmp_line.c_str());
-
-  // check we got a good number
-  if(_nr_of_players <=0) return 1;
+  // play the intro
+  eng.play_intro();
 
   // create players
-  eng.create_players(players, _nr_of_players);
-
-  // Continue with the intro
-  cout << "How many enemies would you like to face? (max 4)" << endl;
-
-  // retrieve the number of enemies
-  getline(cin,tmp_line);
-
-  // get the number
-  _nr_of_enemies = atoi(tmp_line.c_str());
+  _nr_of_players = eng.create_players(players);
 
   // Create the enemies
-  eng.create_enemies(enemies, _nr_of_enemies);
+  _nr_of_enemies = eng.create_enemies(enemies);
 
 
   // tests
+  for(Player* player : players) {
+    cout << player->get_status() << endl;
+  }
+
+  for(Enemy* enemy : enemies) {
+    cout << enemy->get_status() << endl;
+  }
+
+  for(Player* player : players) {
+    for(Enemy* enemy : enemies) {
+      unique_ptr<Action> pl(player->cast_spell("frostbolt",enemy));
+      cout << pl->perform(ran) << endl;
+      unique_ptr<Action> en(enemy->pick_action(players, enemies));
+      cout << en->perform(ran) << endl;
+    }
+
+  }
+
   for(Player* player : players) {
     cout << player->get_status() << endl;
   }
