@@ -1,4 +1,4 @@
-#include "../include/Status_Effects/Status_Effect.h"
+#include "../../include/Status_Effects/Status_Effect.h"
 
 namespace lab3 {
   const size_t Status_Effect::get_duration() const {
